@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=4   , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //apply  把数组中的参数一个一个的传个方法
+        //fn.apply(x,arr) x = 变化this 
+
+        var arr = [1,5,9,123,10];
+
+        console.log(Math.max.apply(Math,arr));
+        console.log(Math.max.apply(null,arr));
+        
+        console.log.apply(console,arr);
+        
+        
+    </script>
+</body>
+</html>

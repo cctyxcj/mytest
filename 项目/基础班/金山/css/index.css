@@ -1,0 +1,292 @@
+/* 头部开始 */
+header .one{
+    height: 32px;
+    width: 100%;
+    background-color: #dc363b;
+}
+header .one ul{
+    float: right;
+    margin-right: 230px;
+}
+header .one ul li{
+    float: left;
+    line-height: 32px;
+    
+}
+header .one ul li.space{
+    margin-right:10px;
+    margin-left:10px;
+    height: 15px;
+    width: 2px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+header .one ul li:last-child a{
+    border: 1px solid white;
+    margin-left: 10px;
+    margin-top: -2px;
+    padding: -2px;
+}
+header .one ul li a{
+    color: white;
+    font-size: 12px;
+}
+
+header .two{
+    height: 69px;
+    width: 100%;
+    background-color: #ffffff;
+    float: left;
+}
+header .two .jsy{
+    margin-left: 260px;
+    width: 240px;
+    margin-top: 20px;
+    float: left;
+}
+header .two .nav{
+    float: right;
+    margin-right: 230px;
+}
+header .two .nav li{
+    float: left;
+    line-height:69px;
+    margin-right: 20px;
+}
+header .two .nav li:first-child{
+    border-bottom: 2px solid red;
+}
+header .two .nav :last-child{
+    margin-right: 0;
+}
+header .two .nav li a{
+    color:black;
+    font-size: 12px;
+}
+/* 头部结束 */
+
+/* 身体开始 */
+.body{
+    width: 100%;
+    height: 395px;
+    background-color: #4e4da8;
+    margin-top: 71px;
+    position: relative;
+}
+.body .tup img{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -450px;
+}
+.body .tup ul{
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    margin-left:-35px;
+}
+.body .tup ul li{
+    float: left; 
+    height: 16px;
+    width: 16px;
+    background-color: #adadaa;
+    border-radius: 50%;
+    margin-left: 2px;
+}
+.body .tup ul li:first-child{
+    background-color: #fff;
+}
+/* 身体结束 */
+/* 服务开始 */
+.service{
+    height: 489px;
+}
+.service .shuoming{
+    text-align: center;
+}
+.service .shuoming h1{
+    height: 58px;
+    line-height: 58px;
+    margin-top: 20px;
+}
+.service .shuoming p{
+    height: 30px;
+    line-height: 30px;
+}
+.service .fwq li{
+    float: left;
+    height: 172px;
+    width: 165px;
+    margin-right: 1px;
+    background-color: #7e7d7d;
+    text-align: center;
+}
+.service .fwq span{
+    display: block;
+    margin-top: 10px;
+}
+.service .fwq li div{
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.service .fwq li div img{
+    margin-top: 13px;
+}
+/* 服务结束 */
+
+/* 通用开始 */
+.tongyong{
+    height: 420px;
+}
+.tongyong .shuoming{
+    text-align: center;
+}
+.tongyong .shuoming h1{
+    height: 58px;
+    line-height: 58px;
+    margin-top: -100px;
+}
+.tongyong .shuoming p{
+    height: 30px;
+    line-height: 30px;
+}
+.tongyong .tyb_l{
+    float: left;
+    width: 360px;
+}
+.tongyong .tyb_r{
+    float: right;
+    width: 450px;
+}
+.tongyong .tyb_r h1{
+    margin-top: 130px;
+}
+.tongyong .tyb_r span{
+    display: block;
+    height: 1px;
+    width: 100px;
+    background-color: #7e7d7d;
+    margin-top: 20px;
+}
+.tongyong .tyb_r p {
+    margin-top: 45px;
+    margin-bottom: 25px;
+}
+.tongyong .tyb_r a{
+    border:1px solid #dc363b;
+    padding: 5px;
+}
+
+/* 通用结束 */
+/* 公告开始 */
+.gonggao{
+    height: 300px;
+}
+.gonggao>.w{
+    overflow: hidden;
+}
+.gonggao h1{
+    height: 30px;
+    line-height: 30px;
+}
+.gonggao .shij{
+    width: 325px;
+    float: left;
+    height: 100%;
+}
+.gonggao .shij span{
+    display: block;
+    height: 1px;
+    width: 100px;
+    background-color: #7e7d7d;
+    margin-top: 20px;
+}
+.gonggao .shij ul li{
+    margin-top:20px ;
+    white-space: nowrap; /* 强制一行内显示 */
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.gonggao .news{
+    width: 325px;
+    height: 100%;
+    float: left;
+}
+.gonggao .news span{
+    display: block;
+    height: 1px;
+    width: 100px;
+    background-color: #7e7d7d;
+    margin-top: 20px;
+}
+.gonggao .news ul li{
+    margin-top:20px ;
+    white-space: nowrap; /* 强制一行内显示 */
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.gonggao .shigo{
+    width: 325px;
+    height: 100%;
+    float: left
+}
+.gonggao .shigo h1{
+    margin-top: 20px;
+}
+.gonggao .shigo span{
+    display: block;
+    height: 1px;
+    width: 170px;
+    background-color: #7e7d7d;
+    margin-top: 20px;
+}
+.gonggao .shigo img{
+    margin-top: 20px;
+}
+
+/* 公告结束 */
+
+/* 尾巴开始 */
+footer{
+    height: 344px;
+    background-color: #333232;
+}
+footer .lis{
+    width: 170px;
+    float: left;
+}
+footer .lis h2{
+    margin-top: 50px;
+    color: #fff;
+}
+footer .lis ul{
+    margin-top: 20px;
+}
+footer .lis li{
+    margin-top: 20px;
+    color: white;
+}
+footer img{
+    float: right;
+    margin-top: 43px;
+    margin-right: 10px;
+}
+footer .gohao{
+    float: right;
+    width: 96px;
+    height: 140px;
+    background-color: red;
+    margin-top: 43px;
+    margin-right: 54px;
+}
+footer .gohao span{
+    margin-bottom: 29px;
+    display: block;
+}
+/* 尾巴结束 */

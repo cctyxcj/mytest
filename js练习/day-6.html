@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.【函数作为参数传递】编写一个 厨师炒菜 的函数，传入 不同菜的制作的函数（辣椒炒肉，红烧狮子头，醋溜土豆丝）。
+        function fric(fn){
+            console.log("炒出了");
+            fn();
+        }
+        a = function (){
+            console.log("辣椒炒肉");   
+        }
+        b = function (){
+            console.log("红烧狮子头");   
+        }
+        c = function (){
+            console.log("醋溜土豆丝");   
+        }
+        // fric(a);
+        // fric(b);
+        // fric(c);
+
+        // 2.【函数重载】编写一个方法，能接收若干数值 打印 这些值得乘法运算结果
+
+        function chengfa(){
+            var x = 1;
+            for(var i in arguments){
+                x *=arguments[i] ;
+            }
+            return x;
+        }
+        // alert(chengfa(5));
+        // alert(chengfa(5,6));
+        // alert(chengfa(2,3,4));
+        // alert(chengfa(2,3,4,5));
+
+        // 3.【对象属性中括号访问法】接收用户输入的10个字符串，存入数组，并统计数组中 各个字符串出现的次数。
+        var a = 'd';
+        var sad = ['s','s','b',1,a,'c','s',"s","c",'b'];
+        function howA(arr){
+            var x = new Object();
+            for(var i in arr){
+                if(arr[i] in x){
+                    x[arr[i]] ++;//x[1]
+                }else{
+                    x[arr[i]] =1;
+                }
+            }
+            return x;
+        }
+        //console.log(howA(sad));
+        
+
+        // 附加题：
+
+        // 4.【函数重载】编写一个方法，能接收若干数值 和 一个 运算方法，获取若干数值的 运算结果。
+        function yunSuan(){  
+            var ar  = [];
+            for(var i = 0 ;i<arguments.length-1;i++){
+                ar[i] = arguments[i];
+            }
+             var fn =arguments[arguments.length-1];
+            return fn(ar);
+            
+        }
+        // console.log(yunSuan(123,425,12,add));
+        // console.log(yunSuan(1230,425,12,jian));
+        // console.log(yunSuan(123,425,12,sheng));
+        // console.log(yunSuan(123,425,12,chu));
+        
+        function add(arr){
+            var x = 0;
+            for(var i  in arr){
+                x += arr[i];
+            }
+            return x;
+        }
+        function jian(arr){
+            var x = arr[0];
+            for(var i = 1; i<arr.length ; i++){
+                x -= arr[i];
+            }
+            return x;
+        }
+        function sheng(arr){
+            var x = 1;
+            for(var i  in arr){
+                x *= arr[i];
+            }
+            return x;
+        }
+        function chu(arr){
+            var x = arr[0];
+            for(var i = 1; i<arr.length ; i++){
+                x /= arr[i];
+            }
+            return x;
+        }
+
+
+        // 5.【循环、数组、函数、对象综合】编写一个学员管理系统
+        // 	a.保存学员 姓名、年龄、性别
+        // 	b.查看学员列表
+        // 	c.新增学员信息
+        // 	d.修改学员信息
+        // 	e.删除学员信息
+
+       function star (){
+            do{ 
+                var caoz = prompt("学员管理系统\t\na.查看学员列表\t\nb.新增学员信息\t\nc.修改学员信息\t\nd.删除学员信息");
+                var isC = true;
+                switch(caoz){
+                    case 'a' : //查看
+                        alert(lisS());
+                        break;
+                    case 'b' : //新增
+                        var sname = prompt("请输入新增成员姓名");
+                        var sage = prompt("请输入新增成员年龄");
+                        var ssex =  prompt("请输入新增成员性别");
+                        alert(addS(sname,sage,ssex));
+                        break;
+                    case 'c' : //修改
+                        var id = prompt("请输入修改成员 \t\n" + lisS());
+                        var sname = prompt("请输入修改成员姓名");
+                        var sage = prompt("请输入修改成员年龄");
+                        var ssex =  prompt("请输入修改成员性别");
+                        alert(updS(id-1,sname,sage,ssex));
+                        break;
+                    case 'd' : //删除
+                        var id = prompt("请输入要删除的成员序号\t\n"+ lisS());
+                        delS(id-1);
+                        alert("删除成功");
+                        break;
+                    case 'e' : //退出
+                        isC = false;
+                        break;
+                    default :
+                        alert("请输入正确的操作");
+                }               
+            }while(isC);
+       }
+
+       var student = [];
+        function Student(name,age,sex){
+            this.name=name;
+            this.age=age;
+            this.sex=sex;
+        }
+        function addS(name,age,sex){
+            student.push(new Student(name,age,sex));
+            return "已添加成员"+name + age + sex ;
+        }
+        function isI (name){
+            var index =-1;
+            for(var i = 0 ; i<student.length ; i++){
+                if(student[i].name == name ){
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+        function updS(id,name,age,sex){
+            student[id].name = name;
+            student[id].age = age;
+            student[id].sex = sex;
+            return "已修改成员"+name + age + sex ;
+        }
+        function delS(id){
+            student.splice(id,1);
+        }
+        function lisS(){
+            var lis = "";
+            if(student.length ==0){
+                lis = "暂无成员,请添加";
+            }
+            for(var i  = 0;i<student.length;i++){
+                lis += i+1+".成员姓名:"+student[i].name+"年龄:"+student[i].age + "性别:"+student[i].sex + "\t\n";
+            }
+            return lis;
+        }
+        star ();
+
+
+    </script>
+</body>
+</html>

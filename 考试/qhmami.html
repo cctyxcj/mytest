@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function qiuhe (arr){
+            var sum =arr[0];
+            var max = arr[0];
+            var min = arr[0];
+            for(var i=1;i<arr.length;i++){
+                sum +=arr[i];
+                if(max <arr[i]){
+                    max =arr[i];
+                }
+                if(min > arr[i]){
+                    min = arr[i];
+                }
+            }
+            return {"sum":sum,"max":max,"min":min};
+        }  
+        var s = [12,3,213,324,4,6]; 
+        var ss = qiuhe(s); 
+        console.log(ss.sum);
+        console.log(ss.max);
+        console.log(ss.min);
+        
+    </script>
+</body>
+</html>

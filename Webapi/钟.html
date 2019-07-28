@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clock{
+            width: 600px;
+            height: 600px;
+            background: url(img/clock.jpg) no-repeat;
+            position: relative;
+        }
+        .clock div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(img/hour.png) no-repeat center ;
+        }
+        #m{
+            background: url(img/minute.png) no-repeat center;            
+        }
+        #s{
+            background: url(img/second.png) no-repeat center;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div id = 'h'></div>
+        <div id = 'm'></div>
+        <div id = 's'></div>
+    </div>  
+
+    <script>
+        var h = document.getElementById('h');
+        var m = document.getElementById('m');
+        var s = document.getElementById('s');
+        xuanz();
+        function xuanz(){
+            var now =new Date();
+            var ho = now.getHours();
+            var mi = now.getMinutes();
+            var sec = now.getSeconds();
+            console.log(ho,mi,sec);
+            
+            var hoz = ho * 30 + mi / 60 * 30; 
+            var miz = mi * 6 + sec /60 * 6;
+            var sez = sec * 6;
+            console.log(hoz,miz,sez);
+
+            h.style.transform = 'rotate(' + hoz + 'deg)';
+            m.style.transform = 'rotate(' +  miz+ 'deg)';
+            s.style.transform = 'rotate(' + sez + 'deg)';
+
+        }
+        setInterval(xuanz,1000);
+    </script>
+</body>
+</html>

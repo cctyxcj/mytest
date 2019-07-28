@@ -1,0 +1,61 @@
+body,
+div,
+span,
+p,
+ul,
+li,
+a,
+img,
+input,
+h1,
+h2,
+h3,
+h4,
+i {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	/* 内减  默认content-box */
+}
+/* 行内元素在行框内的垂直对齐方式 */
+img {
+	vertical-align: middle;
+	border: none;
+}
+/* 清除input的边框 */
+input {
+	border: none;
+	outline: none;
+}
+/* 清除a的样式 下划线*/
+a {
+	text-decoration: none;
+	color: #000;
+}
+/* 清除i的样式  斜体*/
+i {
+	font-style: normal;
+}
+/* 清除li的样式 圆点*/
+li {
+	list-style: none;
+}
+
+body {
+	font-size: 12px;
+	line-height: 1;
+	background-color: #f5f5f5;
+}
+
+/* 清除浮动 */
+.clearfix::after {
+	content: ".";
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.clearfix {
+	*zoom: 1;
+}

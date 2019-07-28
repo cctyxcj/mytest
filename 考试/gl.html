@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">创建球队</button>
+    <div id="dv"></div>
+    <script>
+        var btn = document.getElementById('btn');
+        var dv = document.getElementById('dv');
+        var ul = document.createElement('ul');
+        dv.appendChild(ul);
+        btn.onclick = function(){    
+            for(var a = 0;a<5;a++){
+                var li = document.createElement('li');
+                ul.appendChild(li);
+                li.innerText = "球队"+(a+1);
+                li.onmouseenter = function(){
+                    this.style.background = "red";
+
+                }
+                li.onmouseleave = function(){
+                    this.style.background = "";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

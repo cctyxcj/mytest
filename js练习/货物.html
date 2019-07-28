@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>仓储系统</title>
+</head>
+<body>
+    <script>
+        var huowu = ["海贼王","火影忍者","名侦探柯南","死神"];
+        var h_num=[100,100,100,100];
+
+        var biaoge = "欢迎使用简易仓储系统~~\t\n请选择您要进行的操作\t\n1.新增货物\t\n2.取出货物\t\n3.查看货物清单\t\n4.退出";
+        var shuru = "请输入正确的操作";
+        var isC = true;
+        function lis(){
+            var lis_h = "";
+            for(var i =0;i < huowu.length;i++){
+                lis_h += (i+1) +huowu[i]+"的数量为 " +h_num[i] + "\t\n";
+            }
+            return lis_h;
+        }
+        var tishi = "请选择您要进行的操作\t\n";
+        function addlis(nu_g,nu_c){
+            var onu = h_num[nu_c-1];
+            var nnu = parseFloat(h_num[nu_c-1]) +parseFloat(nu_g);
+            h_num[nu_c-1] = nnu;
+            return "新增【"+huowu[nu_c-1]+"】共 【"+onu+"】个成功，库存："+nnu+"";
+        }
+        function dellis(nu_g,nu_c){
+            var onu = h_num[nu_c-1];
+            if(onu < nu_g){
+                return "货物不够";
+            }
+            h_num[nu_c-1] -=  nu_g;
+            return "【"+huowu[nu_c-1]+"】共 【"+onu+"】个成功，库存："+h_num[nu_c-1]+"";
+        }
+        function isH(num){  
+            return !(num > 0 && num <= huowu.length); 
+        }
+        do{
+            var caozuo = prompt(biaoge);
+            switch(caozuo){
+                case "1" :
+                    var add = prompt(tishi + lis());
+                    if(isNaN(add)){
+                        alert(shuru);
+                        break;
+                    }
+                    if(isH(add)){
+                        alert(shuru);
+                        break;
+                    }
+                    var add_n = prompt("请输入新增多少货物");
+                    if(isNaN(add_n)){
+                        alert(shuru);
+                        break;
+                    }
+                    alert( addlis(add_n,add));
+                    break;
+                case "2" :
+                    var del = prompt(tishi + lis());
+                    if(isNaN(del)){
+                        alert(shuru);
+                        break;
+                    }
+                    if(isH(del)){
+                        alert(shuru);
+                        break;
+                    }
+                    var del_n = prompt("请输入取出多少货物");
+                    if(isNaN(del_n)){
+                        alert(shuru);
+                        break;
+                    }
+                    alert( dellis(del_n,del));
+                    break;
+                case "3" :
+                    alert(lis());
+                    break;
+                case "4" :
+                    isC = false;
+                    break;
+                default : 
+                    alert("请输入正常的操作");
+            }
+        }while(isC);
+    </script>
+</body>
+</html>

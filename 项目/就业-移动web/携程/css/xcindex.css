@@ -1,0 +1,223 @@
+.xc-layout{
+    max-width: 414px;
+    min-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+}
+
+.banner img{
+    width: 100%;
+}
+
+.local-nav{
+    width: 100%;
+    padding: 0 5px;
+   
+    box-sizing: border-box;
+   
+}
+.local-nav ul{
+    display: flex;
+    height: 64px;
+    border-radius: 8px;
+    width: 100%;
+    overflow: hidden;
+}
+.local-nav li {
+    flex: 1; 
+    height: 100%;
+    background-color: #fff;
+}
+.local-nav li a{
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.local-nav li i{
+    display: block;
+    margin: 0 auto;
+    width: 32px;
+    height: 32px;
+    background: url(../img/sprite.png) 0 0;
+    background-size: 32px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+.local-nav li:nth-child(2) i{
+    background: url(../img/sprite.png) 0 -32px;
+    background-size: 32px;
+}
+.local-nav li:nth-child(3) i{
+    background: url(../img/sprite.png) 0 -64px;
+    background-size: 32px;
+}
+.local-nav li:nth-child(4) i{
+    background: url(../img/sprite.png) 0 -96px;
+    background-size: 32px;
+}
+.local-nav li:nth-child(5) i{
+    background: url(../img/sprite.png) 0 -128px;
+    background-size: 32px;
+}
+.xc-nav{
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-left:5px;
+    margin-right:5px;
+    margin-top: 5px;
+}
+.xc-nav .hotel{
+    background: linear-gradient(to right,#fa5956,#fa9a4d);
+}
+.xc-nav .air{
+    background: linear-gradient(to right,#4b8fed,#52bbed);
+}
+.xc-nav .travel{
+    background: linear-gradient(to right,#33c2a9,#6cd458);
+}
+.xc-nav>div{
+    height: 88px;
+    display: flex;
+}
+.xc-nav .item{
+    height: 100%;
+    flex: 1;
+    border-right: 1px solid white;
+}
+.xc-nav .item span{
+    line-height: 44px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+}
+.xc-nav .item:last-child{
+    border:0;
+}
+.xc-nav .title{
+    background: url(../img/hotel.png) no-repeat bottom center;
+    background-size: 121px;
+}
+.xc-nav .nav{
+    display: flex;
+    flex-direction: column;
+}
+.xc-nav .nav .t{
+    border-bottom: 1px solid white;
+}
+.xc-nav .air .title{
+    background: url(../img/flight.png) no-repeat bottom center;
+    background-size: 121px;
+}
+.xc-nav .travel .title{
+    background: url(../img/travel.png) no-repeat bottom center;
+    background-size: 121px;
+}
+.server{
+    padding: 0 5px;
+    margin-top: 5px;
+}
+.server ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow:0 2px rgba(0, 0, 0, .1);
+}
+.server ul li{
+    width: 20%;
+    height: 75px;
+}
+
+.server ul li i{
+    display: block;
+    margin-left: 30px;
+    width: 24px;
+    height: 20px;
+    background:url(../img/subnav.png) 0 0 ;
+    background-size: 24px 300px;
+    margin-top: 10px;
+}
+.server ul li span{
+    display: block;
+    text-align: center;
+    line-height: 40px;
+}
+.server ul li:nth-child(2) i{
+    background:url(../img/subnav.png) 0 -26px ;
+    background-size: 24px 300px;
+}
+.server ul li:nth-child(3) i{
+    background:url(../img/subnav.png) 0 -55px ;
+    background-size: 24px 300px;
+}
+.server ul li:nth-child(4) i{
+    background:url(../img/subnav.png) 0 -85px ;
+    background-size: 24px 300px;
+}
+.server ul li:nth-child(5) i{
+    background:url(../img/subnav.png) 0 -114px ;
+    background-size: 24px 300px;
+}
+.server ul li:nth-child(6) i{
+    background:url(../img/subnav.png) 0 -140px ;
+    background-size: 24px 300px;
+}
+.server ul li:nth-child(7) i{
+    background:url(../img/subnav.png) 0 -170px ;
+    background-size: 24px 300px;
+}
+.server ul li:nth-child(8) i{
+    background:url(../img/subnav.png) 0 -196px ;
+    background-size: 24px 300px;
+}
+.server ul li:nth-child(9) i{
+    background:url(../img/subnav.png) 0 -221px ;
+    background-size: 24px 300px;
+}
+.server ul li:nth-child(10) i{
+    background:url(../img/subnav.png) 0 -247px ;
+    background-size: 24px 300px;
+}
+.person{
+    height: 52px;
+    width: 100%;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    margin-top: 10px;
+    display: flex;
+}
+.person a{
+    flex: 1;
+    display: block;
+}
+.person a i{
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url(../img/ico_home.png) -60px -153px;
+    background-size: 104px;
+    margin: 8px auto;
+}
+.person a span{
+    display: block;
+    text-align: center;
+}
+.person a:nth-child(2) i{
+    background: url(../img/ico_home.png) -60px -173px;
+    background-size: 104px;
+}
+.person a:nth-child(3) i{
+
+    background: url(../img/ico_home.png) -60px -309px;
+    background-size: 104px;
+}

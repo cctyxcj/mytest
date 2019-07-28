@@ -1,0 +1,51 @@
+{% extends "./layout/layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/public/css/page-sj-qa-login.css" />
+<link rel="stylesheet" type="text/css" href="/public/css/page-sj-qa-logined.css" />
+<style>
+  .sui-pagination .disabled a {
+    background-color: #fafafa !important;
+    color: #999999 !important;
+  }
+</style>
+{% endblock %}
+
+{% block main %}
+
+{% endblock %}
+
+
+{% block script %}
+<!-- <script>
+  $('a[name=follow]').on('click', handleFollow)
+  var userInfo = JSON.parse(window.localStorage.getItem('userInfo'))
+
+  function handleFollow() {
+    var $this = $(this)
+    $.ajax({
+      url: $this.attr('href'),
+      method: 'POST',
+      success: function (data) {
+        $('span[name=follow-count]').text(data.followers.length)
+        $('span[name=post-count]').text(data.postCount)
+        if (data.followers.indexOf(userInfo._id) !== -1) {
+          // 关注了
+          $this.removeClass('btn-success')
+            .addClass('btn-dander')
+            .text('取消关注')
+        } else {
+          // 取消关注了
+          $this.removeClass('btn-dander')
+            .addClass('btn-success')
+            .text('关注')
+        }
+      },
+      error: function (error) {
+        console.log(error)
+      }
+    })
+    return false
+  }
+</script> -->
+{% endblock %}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../lib/js/jquery-1.12.4.min.js"></script>
+    
+    <script>
+
+        
+
+        // $(function(){
+        //     $.ajax({
+        //         type: "get",
+        //         url: "http://127.0.0.1:8080/user/listuser/gg",
+        //         dataType: "jsonp",
+        //         success:function(callback){
+        //             console.log(callback);
+        //         },
+        //         error: function (err) { //请求出错的处理
+        //             console.dir(err+"请求出错");
+        //         }
+        //     });
+
+        // })
+        // })
+        /*
+        //1.创建XMLHttpRequest对象
+        var xhr= new XMLHttpRequest();
+        //2.准备放送
+        xhr.open('get','https://autumnfish.cn/api/joke');
+        xhr.onload = function(){
+            console.log(xhr.responseText);
+            
+        }
+        //3.执行方式动作
+        xhr.send();
+        //4.指定回调函数
+        
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    var data = xhr.responseText;
+                    console.log(xhr);
+                    
+                    console.log(data);
+                    
+                }
+            }
+        }
+       
+        
+        function println(data) {
+            console.log(data);
+            console.log('print');
+        }
+         */
+       
+        
+        $.get("http://localhost:3000/user/listuser/ss", function(data){
+				console.log(data);
+			});
+        // $.post("http://127.0.0.1:8080/user/listuser", function(data){
+		// 		alert(data);
+		// 	});
+
+        // function println(data) {
+        //     console.log(data);
+        // }
+
+        // var url = "http://192.168.37.83:8080/user/listuser";
+        // // 创建script标签，设置其属性
+        // var script = document.createElement('script');
+        // script.setAttribute('src', url);
+        // // 把script标签加入head，此时调用开始
+        // document.getElementsByTagName('head')[0].appendChild(script);
+
+        // $.ajax({  
+        //     url: "127.0.0.0:8080/user/listuser",  
+        //     dataType: 'json',  
+        //     type: 'GET',  
+        //     beforeSend: function (xhr) {  
+        //         xhr.setRequestHeader("Test", "testheadervalue");  
+        //     },  
+        //     async: false,  
+        //     cache: false,  
+        //     //contentType: 'application/x-www-form-urlencoded',  
+        //     success: function (sResponse) {  
+        //     }  
+        // }); 
+            // window.onload=function(){
+            //             function gg (callback){
+            //         console.log(callback);
+            //         console.log("gg");
+            //     }
+            // }
+    </script>
+<!-- <script src="http://127.0.0.1:8080//user/listuser/gg"></script> -->
+</body>
+</html>

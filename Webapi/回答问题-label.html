@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        测试题
+    </h1>
+    <hr>
+    1、世界上最长的河是什么河?<br>
+    <!-- label for通过id绑定 -->
+    <input type="radio" name="he" class="he" value="长河" id="cj"><label for="cj">长江</label><br>
+    <input type="radio" name="he" class="he" value="黄河" id="">黄河<br>
+    <input type="radio" name="he" class="he" value="尼罗河" id="">尼罗河<br>
+    <input type="radio" name="he" class="he" value="亚马逊河" id="">亚马逊河<br>
+
+    <hr>
+    2、世界上最长的山是什么山?<br>
+    <input type="radio" name="shan" class="shan" value="天山" id="">天山<br>
+    <input type="radio" name="shan" class="shan" value="珠穆朗玛峰" id="">珠穆朗玛峰<br>
+    <input type="radio" name="shan" class="shan" value="凤凰山" id="">凤凰山<br>
+    <input type="radio" name="shan" class="shan" value="大南山" id="">大南山<br>
+    <script>    
+        var he = document.getElementsByClassName('he');
+        var shan = document.getElementsByClassName('shan');
+        for (let i = 0; i < he.length; i++) {
+            he[i].onclick = hC;
+            shan[i].onclick = hC; 
+        }
+        function hC(){
+            alert("回答错误");
+        }
+        function hZ(){
+            alert("回答正确");
+        }
+        he[2].onclick =hZ;
+        shan[1].onclick = hZ;
+    </script>
+</body>
+</html>

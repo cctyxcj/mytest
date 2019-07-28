@@ -1,0 +1,317 @@
+/* 基本样式 star */
+img{
+    vertical-align: middle;
+}
+.w{
+    width: 1120px;
+    margin: 0 auto;
+}
+
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.f10{
+    color: #f10215;
+}
+@font-face {  /* 声明字体 */
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?8qhwk5');
+    src:  url('../fonts/icomoon.eot?8qhwk5#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?8qhwk5') format('truetype'),
+      url('../fonts/icomoon.woff?8qhwk5') format('woff'),
+      url('../fonts/icomoon.svg?8qhwk5#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+a{
+    text-decoration: none;
+    color: #999;
+    font-size: 12px;
+}
+body{
+    background: #f6f6f6;
+}
+ul,h1,input{
+    margin: 0;
+    padding: 0;
+}
+input,button{
+    border: 0;  
+    outline: none;
+}
+ul{
+    list-style: none;
+
+}
+/* 基本样式 end */
+/* header star */
+header{
+    height: 80px;
+    background: #000;
+}
+/* header end */
+/* shortcut  star*/
+.shortcut{
+    background: #e3e4e5;
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+    line-height: 30px;
+}
+.city{
+    margin-left: 200px;
+    color: #999;
+    font-size: 12px;
+}
+.shortcut li{
+    float: left ;
+}
+.shortcut li:last-child{
+    border: 0;
+}
+.shortcut li a:hover{
+    color:   #e33333;
+}
+.shortcut i{
+    font-family: "icomoon";
+    font-style: normal;
+}
+.shortcut .city i{
+    color:#f10215;
+}
+.space{
+    background-color: #ccc;
+    width: 1px;
+    height: 10px;
+    margin: 10px 12px 0;
+}
+.mobile{
+    position: relative;
+} 
+.mobile img{
+    position: absolute;
+    top: 30px;
+    left: -6px;
+    border: 2px solid #ccc;
+}
+/* shortcut  end*/
+/* middle start */
+.middle{
+    height: 140px;
+    position: relative;
+}
+.logo{
+    top: -30px;
+    left: 0;
+    position: absolute;
+    box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.3);
+}
+.logo a{
+    display: block;
+    background:#fff url(../images/logo.png) no-repeat;
+    height: 170px;
+    width: 190px;
+}
+.form{
+    width: 550px;
+    height: 30px;
+    position: absolute;
+    top: 25px;
+    left: 270px;
+}
+.form button i{
+    font-family: "icomoon";
+    font-style: normal;
+    font-size: 23px;
+    color: #fff;
+}
+.form input{
+    width: 495px;
+    height: 33px;
+    border:1px solid #f10215;
+    font-size: 14px;
+    padding-left: 3px;
+    float: left;
+}
+.form button{
+    width: 50px;
+    height: 35px;
+    background-color: #f10215;
+    float: left;
+}
+.showcar{
+    width: 188px;
+    height: 33px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 25px;
+    right: 80px;
+    text-align: center;
+}
+.showcar a{
+    color: #f10215;
+    line-height: 33px;
+    
+}
+.showcar i{
+    font-family: "icomoon";
+    font-style: normal;
+    color: #f10215;
+}
+.showcar span{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #f10215;
+    position: absolute;
+    top: 5px;
+    right: 35px;
+    line-height: 15px;
+    color: #fff;
+}
+.hotwords{
+    position: absolute;
+    top: 68px;
+    left: 270px;
+}
+.hotwords a:first-child{
+    color: #f10215;
+}
+.navitems{
+    position: absolute;
+    bottom: 0;
+    width: 770px;
+    height: 40px;
+    left: 240px;
+}
+.navitems li{
+    float: left;
+    color: #555;
+    line-height: 40px;
+    margin-left: 30px;
+    font-weight: 700;
+}
+.navitems .space{
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: -15px;
+}
+/* middle end */
+/* footer start */
+footer{
+    margin-top: 33px;
+    height: 500px;
+    background-color: #eaeaea;
+}
+.service{
+    height: 102px;
+    border-bottom: 1px solid #dedede;
+}
+ .service ul li {
+     width: 280px;
+     float: left;
+     position: relative;
+     line-height: 43px;
+     margin-top: 15px;
+ }
+ .service h5{
+     position: absolute;
+     top: -5px;
+     left: 38px;
+     width: 36px;
+     height:43px ;
+     background: url(../images/ico.png) no-repeat;
+ }
+ .service li:nth-child(2) h5{
+     background-position: 0 -43px;
+ }
+ .service li:nth-child(3) h5{
+    background-position: 0 -86px;
+}
+.service li:nth-child(4) h5{
+    background-position: 0 -129px;
+}
+ .service p{
+     font-weight: 700;
+     margin-left: 82px;
+ }
+.help{
+    border-bottom: 1px solid #dedede;
+    height: 200px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+.help ul{
+    width: 150px;
+    float: left;
+}
+.help ul h5{
+    margin-bottom: 5px;
+    margin-top: 0;
+    font-size: 14px;
+}
+.help ul li{
+    margin-top: 5px;
+}
+.h-copyright{
+    width: 180px;
+}
+.h-copyright h5{
+    font-size: 8px;
+    color: #555;
+    margin: 5px;
+    text-align: center;
+}
+.h-copyright p{
+    font-size:6px;
+    color: #555;
+    width: 180px;
+}
+.h-copyright a{
+    text-align: right;
+    width: 180px;
+    display: block;
+
+}
+.copyright{
+    color: #666;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 5px;
+}
+.copyright span{
+    margin: 0 10px;
+}
+.copyright a{
+    color: #666;
+}
+.copyright div p{
+    line-height: 8px;
+    margin-top: 10px;
+}
+.foot-icon a{
+    margin-top: 20px;
+    margin: 20px 4px 0;
+    display: inline-block;
+    width: 103px;
+    height: 33px;
+    background: url(../images/ico_footer.png) no-repeat 0 -150px;
+}
+.foot-icon a:nth-child(2){
+    background: url(../images/ico_footer.png) no-repeat -103px -150px;
+}
+.foot-icon a:nth-child(3){
+    background: url(../images/ico_footer.png) no-repeat 0px -183px;
+}
+.foot-icon a:nth-child(4){
+    background: url(../images/ico_footer.png) no-repeat -103px -183px;
+}
+.foot-icon a:nth-child(5){
+    background: url(../images/ico_footer.png) no-repeat 0px -216px;
+}
+.foot-icon a:nth-child(6){
+    background: url(../images/ico_footer.png) no-repeat -103px -216px;
+}
+/* footer end */

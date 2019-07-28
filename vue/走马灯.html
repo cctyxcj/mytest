@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="js/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id = 'app'>
+        <button @click = "lang">浪起来</button>
+        <button v-on:click = "wen">稳住</button>
+        <p>{{msg}}</p>
+        <p v-text=msg></p>
+        <p v-html=msg></p>
+    </div>
+    <script>
+            var vm = new Vue({
+                el:'#app',
+                data:{
+                    msg:"浪起来~~~~~~~~",
+                    timerId : null
+                },
+                methods:{
+                    lang(){
+                        if(this.timerId != null) return;
+
+                            this.timerId = setInterval(() => {
+                            var star = this.msg[0];
+                            var end = this.msg.substring(1);
+                            this.msg = end + star;
+                        }, 300);
+                        
+                    },
+                    wen(){
+                        clearInterval(this.timerId);
+                        this.timerId = null;
+                    }
+                }
+            });
+    </script>
+</body>
+</html>

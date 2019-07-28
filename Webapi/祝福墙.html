@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: url(img/bg.gif);
+            font-size: 13px;
+        }
+        #content{
+            margin: 0 auto;
+            height: 662px;
+            width: 940px;
+            background: url(img/content_bg.jpg);
+            background-size: 100%;
+            position: relative;
+        }
+        .clearfix::after {
+            content: ".";
+            clear: both;
+            display: block;
+            height: 0;
+            visibility: hidden;
+        }
+        .clearfix {
+            *zoom: 1;
+        }
+        .tip {
+            position: absolute;
+            width: 227px;
+            /* top: 50px;
+            left: 50px; */
+
+        }
+        .tip_h {
+            background: url(img/tip1_h.gif) no-repeat; 
+            padding-top: 50px;
+            
+        }
+        .tip_h div{
+            float: left;
+            margin-left: 10px;
+        }
+        .tip_h div.close {
+            float: right;
+            margin-right:15px ;
+            cursor: pointer;
+        }
+        .tip_c {
+            background: url(img/tip1_c.gif);
+            min-height: 40px;
+            padding-top: 20px;
+            padding-left:15px ;
+            padding-right:15px ;
+            /* box-sizing: border-box; */
+        }
+
+        .tip_f {
+            background: url(img/tip1_f.gif);
+            height: 73px;
+        }
+        .tip_f img{
+            float: left;
+            margin-left: 10px;
+        }
+        .tip_f #name{
+            float:right;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+     <div id = "content">
+       <!-- <div id='tip' class='tip'>
+            <div  class="tip_h clearfix">
+                <div >第[1]条</div>
+                <div id='time'>2017-12-26 00:00:00</div>
+                <div class="close">x</div>
+            </div>
+            <div class="tip_c">
+                周林林比林利群帅
+            </div>
+            <div  class="tip_f clearfix">
+                <img src="img/bpic_1.gif" alt="">
+                <div id="name" >
+                    刘德华
+                </div>
+            </div> -->
+        </div> 
+
+    </div>
+    <script>
+        var messages = [
+            { "id": 1, "name": "张学友", "content": "刘德华说的对", "time": "2017-12-26 00:00:00" },
+            { "id": 2, "name": "刘德华", "content": "周林林比林利群帅", "time": "2017-12-25 12:40:00" },
+            { "id": 3, "name": "郭富城", "content": "我认同张学友说的", "time": "2017-12-25 12:45:00" },
+            { "id": 4, "name": "林利群", "content": "把朋友家厕所拉堵了 不敢出去 掏了半小时了都", "time": "2017-12-24 12:40:00" },
+            { "id": 5, "name": "周林林", "content": "师者，所以传道受业解惑也。", "time": "2016-02-22 12:40:00" },
+            { "id": 6, "name": "紫霞", "content": "至尊宝，等我", "time": "2017-12-23 09:30:00" },
+            { "id": 7, "name": "孙悟空", "content": "吃俺老孙一棒！", "time": "2017-12-23 09:30:00" },
+            { "id": 8, "name": "某某", "content": "旋转，跳跃，我不停歇…………舞娘的喜悲没人看见", "time": "2017-12-26 01:30:00" },
+            { "id": 9, "name": "哎呦哎呦", "content": "今天谁的礼物最好看！！？答：朋友圈。。。", "time": "2017-12-25 20:30:00" }
+        ];
+        var Zindex = 0;
+        var content = document.getElementById('content');
+        function createTip(){
+            for(var i = 0; i<messages.length;i++){
+                var tip = document.createElement('div');
+                tip.className='tip';
+                tip.id='tip';
+                content.appendChild(tip);
+
+                tip.innerHTML= 
+                    '<div id="tip_h" class="tip_h clearfix">'+
+                    '<div id="id">第['+ messages[i].id+']条</div>'+
+                    '<div id="time">'+  messages[i].time+'</div>'+
+                    '<div class="close">x</div>'+
+                    '</div>'+
+                    '<div id="tip_c" class="tip_c clearfix">'+
+                    messages[i].content+
+                    '</div>'+
+                    '<div id="tip_f" class="tip_f clearfix">'+
+                        '<img src="img/bpic_1.gif" alt="">'+
+                        '<div id="name" >'+
+                                messages[i].name+
+                        '</div>'+
+                    '</div>';
+                    7
+                tip.style.left = parseInt(Math.random()*734) + "px";
+                tip.style.top = parseInt(Math.random()*441) + "px";
+
+                tip.children[0].ondblclick = function (){
+                    content.removeChild(this.parentNode);
+                }
+                tip.children[0].children[2].onclick = function (){
+                    content.removeChild(this.parentNode.parentNode);  
+                }
+                tip.onclick = function(){
+                    Zindex++;
+                    this.style.zIndex = Zindex;
+                }
+            }
+        }
+        createTip();
+    
+    </script>
+</body>
+</html>

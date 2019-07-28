@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .top_bar{
+            width: 952px;
+            margin: 0 auto;
+            border: 1px solid blue;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+        }
+        #danwei{
+            margin-left: 5px;
+        }
+        button{
+            margin-left: 5px;
+        }
+        button.down{
+            margin-right: 5px;
+        }
+        nav{
+            width: 952px;
+            margin: 0 auto;
+            border: 1px solid blue;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+            margin-top: 2px;
+        }
+        nav input{
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        table{
+            margin: 2px auto;
+            text-align: center;
+            border-collapse: collapse;
+            width: 950px;
+        }
+        table th{
+            color:white;
+            background-color: skyblue;
+        }
+        table th,td{
+            border: 1px solid #000;
+            padding: 5px;
+        }
+        table th,td a{
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        捐赠管理
+    </h1>
+    <div class="top_bar">
+        受捐单位 : 
+        <select id="danwei">
+            <option value="-1">请选择</option>
+        </select>
+        <button class="check">查询</button>
+        <button class="up">上一页</button>
+        <button class="down">下一页</button>
+    </div>
+    <nav>
+        捐赠人 :
+        <input type="text" id="person" >
+        受捐单位 :
+        <select id="dw">
+        </select>
+        金额 :
+        <input type="text" id="money">
+        受捐日期 :
+        <input type="text" id="day">
+        <button class="add">新增</button>
+    </nav>
+    <table id = "table">
+        <tr>
+           <th>序号</th>
+           <th>捐赠人</th>
+           <th>受捐单位</th>
+           <th>金额</th>
+           <th>受捐日期</th>
+           <th>操作</th>
+        </tr>
+    </table>
+    <script>
+        window.onload = function(){
+
+            //获取表元素
+            var table = document.getElementById('table');    
+            var page = 1 ;
+            var sPage = (page -1) *5 +5 ;
+            var arrP = [
+                {"pname": "李连杰", "orgId":"1", "money":"10000", "date":"2013-01-17"},
+                {"pname": "成龙", "orgId":"2","money": "20000", "date":"2013-01-18"},
+                { "pname": "甄子丹", "orgId": "3", "money": "40000", "date": "2013-01-19" },
+                { "pname": "洪金宝", "orgId": "3", "money": "140000", "date": "2013-01-19" },
+                {"pname": "徐静蕾","orgId": "2", "money":"2220000", "date":"2013-01-17"},
+                {"pname": "陈光标","orgId": "2", "money":"1000", "date":"2013-01-18"},
+                {"pname": "星爷", "orgId":"1","money": "10000", "date":"2013-01-17"},
+                {"pname": "梁朝伟","orgId": "2", "money":"20000", "date":"2013-01-18"},
+                {"pname": "周润发","orgId": "1", "money":"10000", "date":"2013-01-17"},
+                {"pname": "马云", "orgId":"3", "money":"2000000","date": "2013-01-18"},
+                {"pname": "马云他儿子","orgId": "3", "money":"2000000", "date":"2013-01-18"}//11 行
+            ];
+            var count = Math.ceil(arrP.length/5);
+            var top_bar = document.getElementsByClassName('top_bar')[0];  
+
+            var div = document.createElement('div');
+            top_bar.appendChild(div);
+            div.innerHTML = page +"/" +count; 
+            var dw_op_arr = [
+                { "id": "1", "name": "壹基金" },
+                { "id": "2", "name": "慈济基金" },
+                { "id": "3", "name": "宋庆龄基金" }
+            ];
+            var dw = document.getElementById('dw');
+            var danwei = document.getElementById('danwei');
+
+            //添加下拉列表
+            fillSel(dw);
+            fillSel(danwei);
+            function fillSel(obj){
+                for(var i = 0 ; i< dw_op_arr.length ; i++){
+                    var option = document.createElement("option");
+                    obj.appendChild(option);
+                    option.value = dw_op_arr[i].id;
+                    option.innerHTML = dw_op_arr[i].name;
+                }
+            }
+
+        //初始化列表
+        if( sPage < arrP.length){
+            listTable(arrP,(page - 1 ) * 5  , sPage );
+        }else{
+            listTable(arrP ,(page - 1 ) * 5  , arrP.length );
+        }
+
+        //遍历出表信息
+        function listTable(arr,page1 , pageX){
+            for (var i = page1 ;i < pageX ; i++){
+            var tr = document.createElement('tr');
+            var data = arr[i];
+            var td = document.createElement('td');
+            table.appendChild(tr);
+            //td.innerHTML= data[key];
+            tr.appendChild(td);
+            td.innerHTML= i+1;
+            for(var key in data){
+                td = document.createElement('td');
+                tr.appendChild(td);
+                td.innerHTML= data[key];
+                if(key == "orgId"){
+                    if(data[key] == 1 ){
+                        td.innerHTML= "壹基金";
+                    }else if(data[key] == 2 ){
+                        td.innerHTML= "慈济基金";
+                    }else{
+                        td.innerHTML= "宋庆龄基金";
+                    }
+                }
+            }
+
+            //添加操作列
+            td = document.createElement('td');
+            var linkD = document.createElement('a');
+            var linkG = document.createElement('a');
+            tr.appendChild(td);
+            td.appendChild(linkD);
+            td.appendChild(linkG);
+            linkD.href = "javascript:void(0)";
+            linkD.innerHTML = "删";
+            //注册删方法
+            linkD.onclick = liDel;
+            linkG.href = "javascript:void(0)";
+            linkG.innerHTML = "改";
+            //注册改方法
+            linkG.onclick = liUp;
+        }
+        }
+
+        //删除事件
+        function liDel(){
+            var isd = confirm('确定要删除吗');
+            if(isd){
+            var tr = this.parentNode.parentNode;  
+            for(var i = 0;i<arrP.length ; i++){
+                    if(tr.childNodes[1].innerHTML == arrP[i].pname){
+                        arrP.splice(i,1);
+                        break;
+                    }
+                }
+            count = Math.ceil(arrP.length / 5 );
+            div.innerHTML = page +"/" +count; 
+            //table.removeChild(tr);
+                if(page >= count && arrP.length ==count*5){
+                    up.click();
+                }else if(page == count){
+                    clearTable();
+                    listTable(arrP,(page - 1 ) * 5  ,  arrP.length);
+                }else{
+                    clearTable();
+                    listTable(arrP,(page - 1 ) * 5  , (page - 1 ) * 5+5);
+                }
+            return false;
+            }
+        }
+
+        //修改事件
+        function liUp(){
+            var tr = this.parentNode.parentNode;  
+            //设置名称
+            var inputN = document.createElement("input");
+            var dataN = tr.childNodes[1].innerHTML;
+            tr.childNodes[1].innerHTML=null;
+            tr.childNodes[1].appendChild(inputN);
+            inputN.value=dataN;
+            //设置下拉框
+            var sel = document.createElement("select");
+            var dataS = tr.childNodes[2].innerHTML;
+            //console.log(dataS);
+            tr.childNodes[2].innerHTML=null;
+            tr.childNodes[2].appendChild(sel);
+            fillSel(sel);
+            var selid ;
+            if(dataS == "壹基金"){
+                selid =0;
+            }else if(dataS == "慈济基金"){
+                selid =1;
+            }else{
+                selid =2;
+            }
+            sel.childNodes[selid].selected="selected";
+            //设置金额
+            var inputM = document.createElement("input");
+            var dataM = tr.childNodes[3].innerHTML;
+            tr.childNodes[3].innerHTML=null;
+            tr.childNodes[3].appendChild(inputM);
+            inputM.value=dataM;
+            //设置日期
+            var inputD = document.createElement("input");
+            var dataD = tr.childNodes[4].innerHTML;
+            tr.childNodes[4].innerHTML=null;
+            tr.childNodes[4].appendChild(inputD);
+            inputD.value=dataD;
+            //改变操作
+            var dataC = tr.childNodes[5].innerHTML;
+            tr.childNodes[5].innerHTML=null;
+            var aq = document.createElement("a");
+            var as = document.createElement("a");
+            tr.childNodes[5].appendChild(aq);
+            tr.childNodes[5].appendChild(as);
+            aq.href="javascript:void(0)";
+            aq.innerHTML="确定";
+            as.href="javascript:void(0)";
+            as.innerHTML="取消";
+            as.onclick = function(){
+                tr.childNodes[1].innerHTML=null;
+                tr.childNodes[2].innerHTML=null;
+                tr.childNodes[3].innerHTML=null;
+                tr.childNodes[4].innerHTML=null;
+                tr.childNodes[5].innerHTML=null;
+                tr.childNodes[1].innerHTML = dataN;
+                tr.childNodes[2].innerHTML = dataS;
+                tr.childNodes[3].innerHTML = dataM;
+                tr.childNodes[4].innerHTML = dataD;
+                tr.childNodes[5].innerHTML = dataC;
+                tr.childNodes[5].childNodes[0].onclick = liDel;
+                tr.childNodes[5].childNodes[1].onclick = liUp;
+            }
+            aq.onclick = function (){
+                for(var i = 0;i<arrP.length ; i++){
+                    if(dataN == arrP[i].pname){
+                        arrP[i].pname = tr.childNodes[1].childNodes[0].value;
+                        arrP[i].orgId = tr.childNodes[2].childNodes[0].value;
+                        arrP[i].money = tr.childNodes[3].childNodes[0].value;
+                        arrP[i].date = tr.childNodes[4].childNodes[0].value;
+                        break;
+                    }
+                }
+                dataN = tr.childNodes[1].childNodes[0].value;
+                dataS = tr.childNodes[2].childNodes[0].value;
+                dataM = tr.childNodes[3].childNodes[0].value;
+                dataD = tr.childNodes[4].childNodes[0].value;
+                
+                    if(dataS == 1 ){
+                        dataS= "壹基金";
+                    }else if(dataS == 2 ){
+                        dataS= "慈济基金";
+                    }else{
+                        dataS= "宋庆龄基金";
+                    }
+                tr.childNodes[1].innerHTML=null;
+                tr.childNodes[2].innerHTML=null;
+                tr.childNodes[3].innerHTML=null;
+                tr.childNodes[4].innerHTML=null;
+                tr.childNodes[5].innerHTML=null;
+                tr.childNodes[1].innerHTML = dataN;
+                tr.childNodes[2].innerHTML = dataS;
+                tr.childNodes[3].innerHTML = dataM;
+                tr.childNodes[4].innerHTML = dataD;
+                tr.childNodes[5].innerHTML = dataC;
+                tr.childNodes[5].childNodes[0].onclick = liDel;
+                tr.childNodes[5].childNodes[1].onclick = liUp;
+            }
+        }
+
+        
+        //上一页
+        var up = document.getElementsByClassName('up')[0];
+        up.onclick = function(){
+            if(page == 1){
+                alert("已经是第一页");
+            }else{
+                clearTable();
+                page -= 1 ;
+                sPage =  (page -1) *5 +5 ; 
+                if( sPage < arrP.length){
+                listTable(arrP,(page - 1 ) * 5  , sPage );
+                }else{
+                listTable(arrP,(page - 1 ) * 5  , arrP.length );
+                }
+                div.innerHTML = page +"/" +count; 
+            }
+        }
+
+
+        //下一页
+        var down = document.getElementsByClassName('down')[0];
+        down.onclick = function(){
+            if(page == count){
+                alert("已经是最后一页");
+            }else{
+                clearTable();
+                page += 1 ;
+                sPage =  (page -1) *5 +5 ; 
+                if( sPage < arrP.length){
+                listTable(arrP,(page - 1 ) * 5  , sPage );
+                }else{
+                listTable(arrP,(page - 1 ) * 5  , arrP.length );
+                }
+                div.innerHTML = page +"/" +count; 
+            }
+        }
+
+        //清空列表
+        function clearTable() {
+            for (var i = table.rows.length - 1; i > 0; i--) {
+                table.deleteRow(i);
+            }
+        }
+
+        //新增
+        var add = document.getElementsByClassName('add')[0];
+        add.onclick = function (){
+            var pname = document.getElementById('person').value;
+            var dw = document.getElementById('dw').value;
+            var money = document.getElementById('money').value;
+            var day = document.getElementById('day').value;
+            var nPer = {"pname": pname,"orgId": dw, "money":money, "date":day}
+            arrP.push(nPer);
+                if(arrP.length > count * 5){
+                    count += 1;
+                    div.innerHTML = page +"/" +count; 
+                    clearTable();
+                    sPage =  (page -1) *5 +5 ; 
+                    listTable((page - 1 ) * 5  , sPage);
+                }
+                page = count;
+                clearTable();
+                listTable(arrP,(page - 1 ) * 5  , arrP.length );
+        }
+
+        //查询
+        var check = document.getElementsByClassName('check')[0];
+        check.onclick = function (){
+            var danwei = document.getElementById('danwei').value;
+            var arrC  = [];
+            if(danwei != -1){
+                for(var i = 0  ; i<arrP.length ; i++){
+                    if(danwei == arrP[i].orgId){
+                        arrC.push(arrP[i]);
+                    }
+                }
+            div.innerHTML = 0 +"/" + 0 ; 
+            clearTable(); 
+            listTable(arrC,0, arrC.length );
+                   
+            }else{
+                clearTable(); 
+                div.innerHTML = page +"/" +count; 
+                listTable(arrP,(page - 1 ) * 5  , (page - 1 ) * 5 +5 );
+            }  
+        }
+    }
+    </script>
+</body>
+</html>

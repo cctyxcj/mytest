@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <coml :parentmsg='msg' @func='getMsgFromSon'></coml>
+    </div>
+
+    <template id="templ">
+        <div>
+            <h1> 这是一个子元素--------{{parentmsg}}</h1>
+            <input type="button" value="向上级传递" @click='getMsg'>
+        </div>
+
+    </template>
+
+    <script>
+        var coml = {
+            template: '#templ',
+            data() {
+                return {
+
+                    msg: '给haha so money'
+                }
+            },
+            props: ['parentmsg'],
+            methods: {
+                getMsg: function () {
+                    this.$emit('func', this.msg);
+                }
+            }
+            
+        }
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "神经病吧",
+                msgFromSon: ''
+            },
+            methods: {
+                getMsgFromSon(data) {
+                    this.msgFromSon = data;
+                    console.log(this.msgFromSon);
+
+                }
+            },
+            components: {
+                coml
+            }
+
+        })    
+    </script>
+</body>
+
+</html>

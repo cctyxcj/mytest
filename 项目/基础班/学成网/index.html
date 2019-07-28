@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #050505;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        input {
+            border: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+
+        }
+
+        body {
+            background: #f3f5f7;
+        }
+
+        .createfix::after,
+        .createfix::before {
+            content: "";
+            display: table;
+        }
+
+        .createfix::after {
+            clear: both;
+        }
+
+        .createfix {
+            *zoom: 1;
+        }
+
+        header {
+            height: 100px;
+            overflow: hidden;
+        }
+
+        nav {
+            height: 43px;
+            margin: 26px auto;
+            width: 1226px;
+        }
+
+        .logo {
+            float: left;
+        }
+
+        .navbar {
+            float: left;
+            height: 42px;
+            line-height: 42px;
+            margin-left: 52px;
+        }
+
+        .navbar li {
+            float: left;
+            margin: 0 5px;
+        }
+
+        .navbar li a {
+            padding: 0 8px;
+
+            display: block;
+            height: 42px;
+        }
+
+        .navbar li a:hover {
+            border-bottom: 2px solid #00a4ff;
+        }
+
+        .search {
+            margin-left: 100px;
+            margin-right: 30px;
+            width: 410px;
+            height: 38px;
+            border: 1px solid #00a4ff;
+            float: left;
+        }
+
+        .search input[type=text] {
+            width: 360px;
+            height: 38px;
+            padding-left: 20px;
+            float: left;
+        }
+
+        .search input[type=submit] {
+            width: 50px;
+            height: 38px;
+            background-color: #00a4ff;
+            float: left;
+            background: #00a4ff url(images/search_06.png) no-repeat center center;
+
+        }
+
+        .person a {
+            margin-left: 20px;
+        }
+
+        .person img {
+            margin-left: 5px;
+        }
+
+        .banner {
+            height: 420px;
+            background: #1c036c;
+        }
+
+        .banner-in {
+            height: 420px;
+            background: url(images/banner_03.png) 0 0 no-repeat;
+        }
+
+        .slidebar {
+            height: 420px;
+            width: 190px;
+            background: rgba(0, 0, 0, 0.3);
+            float: left;
+        }
+
+        .slidebar li a {
+            color: #fff;
+            font-size: 14px;
+            padding: 0 20px;
+            display: block;
+            line-height: 45px;
+        }
+
+        .slidebar li span {
+            float: right;
+            font-family: Arial;
+        }
+
+        .slidebar li a:hover {
+            color: #00a4ff;
+        }
+
+        .timetable {
+            float: right;
+            width: 230px;
+            height: 300px;
+            background: #fff;
+            margin-top: 50px;
+
+        }
+
+        .timetable dt {
+            height: 50px;
+            background-color: #9bceea;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .timetable dd {
+            height: 60px;
+            width: 193px;
+            margin: 0 auto;
+            border-bottom: 1px solid #ccc;
+            padding-top: 12px;
+            box-sizing: border-box;
+        }
+        .timetable dd h4{
+            font-size: 16px;
+            font-weight: normal;
+            color:#4e4e4e;
+        }
+        .timetable dd p{
+            color: #a5a5a5;
+            font-size: 8px;
+        }
+        .timetable dd:last-child{
+            border: 0px;
+
+        }
+        .timetable dd a{
+            border: 1px solid #00a4ff;
+            display: block;
+            height: 38px;
+            text-align: center;
+            margin: 0 auto;
+            line-height: 38px;
+            color: #00a4ff;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .timetable dd a:hover{
+            background: #00a4ff;
+            color: #fff;
+        }
+        .reconment{
+            background:  #fff;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+            height: 60px;
+            line-height: 60px;
+            margin-top: 8px;
+        }
+        .reconment a{
+            padding: 0 30px;
+            border-right: 1px solid #ccc;
+        }
+        .reconment a:first-child{
+            color: #00a4ff;
+        }
+        .reconment a:hover{
+            color: #00a4ff;
+        }
+        .reconment a:last-child{
+            border: 0;
+            float: right;
+            color: #00a4ff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo_03.png" alt="">
+            </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">课程</a></li>
+                    <li><a href="#">职业规划</a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <form action="">
+                    <input type="text" placeholder="shuru">
+                    <input type="submit" value="">
+                </form>
+            </div>
+            <div class="person">
+                <a href="#">个人中心
+                    <img src="images/ling_06.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="images/tou_03.png" alt="">
+                    大叔
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="banner">
+        <div class="banner-in container">
+            <div class="slidebar">
+                <ul>
+                    <li><a href="#">前端开发 <span>></span></a></li>
+                    <li><a href="#">前端开发 <span>></span></a></li>
+                    <li><a href="#">前端开发 <span>></span></a></li>
+                    <li><a href="#">前端开发 <span>></span></a></li>
+                    <li><a href="#">前端开发 <span>></span></a></li>
+                    <li><a href="#">前端开发 <span>></span></a></li>
+                    <li><a href="#">前端开发 <span>></span></a></li>
+                    <li><a href="#">前端开发 <span>></span></a></li>
+                    <li><a href="#">前端开发 <span>></span></a></li>
+                </ul>
+            </div>
+            <dl class="timetable">
+                <dt>我的课程表</dt>
+                <dd>
+                    <h4>继续学习 程序语言设计</h4>
+                    <p>继续学习 程序语言设计</p>
+                </dd>
+                <dd>
+                    <h4>继续学习 程序语言设计</h4>
+                    <p>继续学习 程序语言设计</p>
+                </dd>
+                <dd>
+                    <h4>继续学习 程序语言设计</h4>
+                    <p>继续学习 程序语言设计</p>
+                </dd>
+                <dd> <a href="#">全部课程</a>
+                    </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="reconment container">
+        <a href="#">精品推荐</a>
+        <a href="#">精品推荐</a>
+        <a href="#">精品推荐</a>
+        <a href="#">精品推荐</a>
+        <a href="#">精品推荐</a>
+        <a href="#">精品推荐</a>
+        <a href="#">精品推荐</a>
+        <a href="#">精品推荐</a>
+    </div>
+</body>
+
+</html>

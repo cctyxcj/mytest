@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Myhero" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My-Hero</title>
+
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/vue-2.4.0.js"></script>
+    <style>
+         [v-cloak]{
+             display: none;
+
+         }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加英雄</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label>
+                    武器类型:
+                    <select v-model="weapon">
+                        <option value="剑">剑</option>
+                        <option value="枪">枪</option>
+                        <option value="斧">斧</option>
+                        <option value="魔">魔</option>
+                        <option value="弓">弓</option>
+                        <option value="龙">龙</option>
+                        <option value="暗器">暗器</option>
+                    </select>
+                </label>
+                <label>
+                    HeroName:
+                    <input type="text" v-model="hname" @keyup.f2="add">
+                </label>
+                <label>
+                    兵种:
+                    <select v-model="go">
+                        <option value="步兵">步兵</option>
+                        <option value="重甲">重甲</option>
+                        <option value="飞兵">飞兵</option>
+                        <option value="骑兵">骑兵</option>
+                    </select>
+                </label>
+
+                <input type="button" value="添加" class="btn btn-primary" @click = "add">
+                <label>
+                    搜索:
+                    <input type="text" v-model="search_key" v-focus>
+                    <!-- <input type="button" value="搜索" class="btn btn-primary" @click = "search"> -->
+                </label>
+            </div>
+
+        </div>
+
+
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <th>武器类型</th>
+                <th>HeroName</th>
+                <th>兵种</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                <tr v-for="item in search()" :val="item.hname" v-cloak>
+                    <td>{{item.weapon}}</td>
+                    <td v-text="item.hname"></td>
+                    <td>{{item.go}}</td>
+
+                    <td><a @click.prevent="del(item.hname)" href="#">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="time" v-cloak> 
+            {{date.getFullYear()}}-{{date.getMonth()+1}}-{{date.getDate()}}
+        </div>
+    </div>
+    <script> 
+        Vue.config.keyCodes.f2 = 113;
+        Vue.directive('focus',{
+            bind:function(el){
+            },
+            inserted:function(el){
+                el.focus();
+            },
+            updated:function(){
+
+            }
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "神经病吧",
+                weapon: "剑",
+                hname: "",
+                go:"步兵",
+                date:new Date(),
+                arr: [
+                    { weapon: "魔", hname: "尼诺", go: "步兵" },
+                    { weapon: "龙", hname: "珐", go: "步兵" },
+                    { weapon: "龙", hname: "浓浓", go: "步兵" },
+                    { weapon: "龙", hname: "琪姬", go: "步兵" }
+                ],
+                search_key:"",
+            },
+            methods: {
+                del(na) {
+                    // for (let index = 0; index < this.arr.length; index++) {
+                    //     if(this.arr[index].hname == na){
+                    //         this.arr.splice(index,1);
+                    //         break;
+                    //     }    
+                    // }
+                    // var index = this.arr.findIndex( item =>{
+                    //     if(item.hname == na){
+                    //         return true;
+                    //     }
+                    // })
+                    // console.log(index);
+                    
+                    this.arr.some ((item,i)=>{
+                        if(item.hname == na){
+                            this.arr.splice(i,1);
+                            return ;
+                        }
+                    })
+
+                },
+                add(){
+                    if(this.hname == "")return;
+                    
+                    this.arr.push({weapon:this.weapon ,hname:this.hname , go:this.go });
+                },
+                search(){
+                    //var arrn=[];
+                    
+                    // for(var  i = 0; i< this.arr.length ; i++){
+                    //     // if(this.arr[i].hname.indexOf(this.search_key) != -1){
+                    //     //     arrn.push(this.arr[i]);
+                    //     // }
+                    //     if(this.arr[i].hname.includes(this.search_key)){
+                    //         arrn.push(this.arr[i]);
+                    //     }
+                    // }
+                    // 注意 forEach some filter findIndex 这些都是属于数组的新方法 都会对数组中的每一项进行遍历,执行相关的操作
+                    return this.arr.filter(item =>{
+                        if (item.hname.includes(this.search_key)){
+                            return item;
+                        }
+                    })
+                    //return arrn;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

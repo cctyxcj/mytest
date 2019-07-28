@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            {{msg}}
+        </h1>
+        <ss></ss>
+        <gg></gg>
+    </div>
+    <template id="ss">
+        <div>
+            {{msg}}
+        </div>
+    </template>
+    <template id="gg">
+            <div>
+                {{msg}}
+            </div>
+        </template>
+    <script>
+        const ss = {
+            template:'#ss',
+            data:function(){
+                return {
+                    msg:'ssss'
+                }
+            }
+        }
+        const gg = {
+            template:'#gg',
+            data:function(){
+                return {
+                    msg:'gggg'
+                }
+            }
+        }
+        Vue.component('gg',gg)
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"神吧"
+            },
+            methods:{
+            },
+            //自定义私有组件
+            components:{
+                ss
+            },
+        })    
+    </script>
+</body>
+</html>

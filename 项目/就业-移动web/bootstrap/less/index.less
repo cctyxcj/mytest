@@ -1,0 +1,250 @@
+@import "normalize";
+@import "base";
+
+.banxin(@width){
+    width:@width;
+    margin: 0 auto;
+}
+
+.my_yaout{
+    .topbar{
+        height: 43px;
+        background-color: #222;
+        .content{
+        .banxin(1170px);
+            ul{
+                float: left;
+                li{
+                    float: left;
+                    margin-right: 30px;
+                    a{
+                        font-size: 14px;
+                        line-height: 43px;
+                        color:#9d9d9d;
+                    }
+                    &:first-child{
+                        a{
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+            .about{
+                float: right;
+                a{
+                    font-size: 14px;
+                    line-height: 43px;
+                    color: #9d9d9d;
+                }
+            }
+            .menu{
+               display: none;
+                margin-top: 8px;
+                width: 42px;
+                height: 32px;
+                border: 1px solid #333;
+                float: right;
+                border-radius: 3px;
+                text-align: center;
+                padding-top: 7px;
+                i{
+                    height: 2px;
+                    width: 23px;
+                    background-color: #fff;
+                    margin: 0 auto;
+                    margin-bottom: 4px;
+                    display: block;
+                }
+            }
+        }
+    }
+    .bigshow{
+        height: 465px;
+        width: 100%;
+        background:linear-gradient(45deg,#020029,#642f4d);
+        position: relative;
+        text-align: center;
+        padding-top: 70px;
+        &::after{
+            content: "";
+            background: url(../imgs/bs.png) center center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        h1{
+            font-weight: bold;
+            font-size: 80px;
+            color: white;
+        }
+        .desc{
+            margin-top: 14px;
+            font-size: 30px;
+            color:white;
+        }
+        .button{
+            width: 290px;
+            height: 55px;
+            background-color: #337ab6;
+            border-radius: 10px;
+            margin: 35px auto 0;
+            line-height: 55px;
+            font-size: 14px;
+            color:white;
+        }
+    }
+    .liti{
+        width: 100%;
+        height: 158px;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        h1{
+            font-size: 44px;
+            margin-top: 60px;
+        }
+        p{
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        .xian{
+            position: absolute;
+            transform: translate(-50%);
+            left: 50%;
+            bottom: 0;
+            height: 1px;
+            width: 676px;
+            background-color: #eee;
+        }
+    }
+    .show_list{
+        .banxin(1170px);
+        margin-top: 10px;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            li{
+                height: 336px;
+                width: 263px;
+                border: 1px solid #eee;
+                padding: 4px;
+                text-align: center;
+                margin-top: 30px;
+                img{
+                    width: 100%;
+                }
+                .title{
+                    margin-top: 30px;
+                    font-size: 24px;
+                    color: #337ab7;
+                }
+                .shoum{
+                    font-size: 14px;
+                    color:#777;
+                    margin-top: 10px;
+                }
+                .desc{
+                    font-size: 14px;
+                    margin-top: 14px;
+                    color:#555;
+                    text-indent: 8px;
+                }
+            }
+        }
+    }
+}
+
+//大于1200的布局 960
+@media screen and (min-width:992px) and (max-width:1200px){
+    .my_yaout{
+        .topbar{
+            .content{
+            .banxin(960px);
+                ul{
+                    li{
+                        &:nth-child(2) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .show_list{
+            .banxin(960px);
+            ul{
+                li{
+                    width: 295px;
+                    height: 352px;
+                }
+            }
+        }
+    }
+    
+}
+//小于1200大于768的布局 720
+@media screen and (min-width:768px) and (max-width:992px) {
+    .my_yaout{
+        .topbar{
+            .content{
+            .banxin(720px);
+                ul{
+                    li{
+                        &:first-child,
+                        &:nth-child(2){
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .show_list{
+            .banxin(720px);
+            ul{
+                li{
+                    width: 310px;
+                    height: 359px;
+                }
+            }
+        }
+    }
+    
+}
+//小于768的布局 100%
+@media screen and (max-width:768px) {
+    .my_yaout{
+        .topbar{
+            .content{
+            .banxin(100%);
+                ul{
+                    li{
+                        display: none;
+                        &:first-child{ 
+                            display: block;
+                        }
+                    }
+                }
+            
+            .about{
+                display: none;
+            }
+            .menu{
+                display: block;
+            }
+        }
+        }
+        .show_list{
+            .banxin(100%);
+            ul{
+                flex-direction: column;
+                align-items: center;
+                li{
+                    width: 311px;
+                    height: 362px;
+                }
+            }
+        }
+    }
+}

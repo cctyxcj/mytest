@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{car.color}}</p>
+        <p v-text="msg"></p>
+        <p v-html="car.nan"></p>
+        <p v-html="ss"></p>
+        <p v-html="car.color"></p>
+        <input type="text" v-model="msg">
+        <button v-on:click="clickFn">按钮</button>
+    </div>
+
+    <script src="./vue/watch.js"></script>
+    <script src="./vue/observer.js"></script>
+    <script src="./vue/compile.js"></script>
+    <script src="./vue/vue.js"></script>
+    <script>
+
+        var vm =new Vue({
+            el:"#app",
+            data:{
+                msg:"msg",
+                ss:"<h1>龙王的工作</h1>",
+                car:{
+                    color:"green",
+                    nan:"ccty"
+                }
+            },
+            metheds:{
+                clickFn(){
+                    console.log(this);
+                    console.log(this.$data.msg);
+                    
+                }
+            }
+        })
+        // console.log(vm);
+        
+        </script>
+</body>
+</html>

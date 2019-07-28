@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+    <title>查询</title>
+</head>
+<body>
+    <form action="http://localhost:3000/score">
+        请输入名称 : <input type="text" name='code'>
+        <input type="submit" value="查询">
+    </form>
+    <script>
+        document.getElementsByTagName('input')[1].onclick=function(){
+            var data = document.getElementsByTagName('input')[0].value;
+            location.href="http://localhost:3000/score?"+data;
+        }
+    </script>
+</body>
+</html>

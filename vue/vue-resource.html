@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+    <script src="js/vue-resource-1.3.4.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ msg }}
+        <button @click="getInfo">get</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"神经病吧"
+            },
+            methods:{
+                getInfo(){
+                    this.$http.get('https://autumnfish.cn/api/hero/info?name=亚索').then(function(result){
+                        console.log(this.msg=result);
+                        
+                    },function () {
+                        console.log(error);
+                        
+                    });
+                }
+            }
+        })    
+    </script>
+</body>
+</html>

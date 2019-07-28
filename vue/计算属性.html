@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+		<div v-for="(item,indx) in sad" :key="indx">
+			<button   @click="item.isde=!item.isde" >{{item.name}}</button>
+			<button   @click="item.num++" >{{item.name}}</button>
+		</div>
+        <h2>
+            {{ ss }}
+        </h2>
+    </div>
+    <script>
+        Vue.filter('ba',function(s){
+            return s.replace('吧','')
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "神吧",
+				sad:[
+					{
+					name:"abc",
+					isde:true,
+					num:10,
+					price:15},
+					{
+					name:"bgc",
+					isde:true,
+					num:7,
+					price:11}
+				]
+            },
+            computed: {
+                "ss": function () {
+					var sum = 0
+					this.sad.forEach(item=>{
+						if(item.isde){
+							sum += item.num*item.price
+						}
+					})
+                    return sum
+                }
+            }
+        })    
+    </script>
+</body>
+
+</html>

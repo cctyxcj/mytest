@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(val ,key , i) in obj">
+            键:{{key}} ----- 值:{{val}} --- 索引:{{i}}
+        </p>
+
+        <!-- key只能存字符串或者数字 -->
+        <p v-for="(val , i) in arr_o" :key='val.name'>
+            <input type="checkbox" >
+            序号:{{i}}----- 名称:{{val.name}}------ 级别:{{val.level}}
+        </p>
+        名称<input type="text" v-model="na">
+        级别<input type="text" v-model="le">
+        <button @click="add">添加</button>
+        
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                na : "",
+                le : "",
+                obj:{
+                    name : '柯南',
+                    age : "小学神"
+                },
+                arr_o:[
+                    {name : '不知火' , level : 'ssr'},
+                    {name : '阎魔' , level : 'ssr'},
+                    {name : '妖刀姬' , level : 'ssr'},
+                    {name : '花鸟卷' , level : 'ssr'},
+                    {name : '彼岸花' , level : 'ssr'}
+                ]
+            },
+            methods:{
+                add(){
+                    //this.arr_o.push({name : this.na , level : this.le});
+                    this.arr_o.unshift({name : this.na , level : this.le});
+
+                }
+            }
+        })    
+    </script>
+</body>
+</html>

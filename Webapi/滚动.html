@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            border: 1px solid sandybrown;
+            margin: 30px;
+            height: 400px;
+            width: 300px;
+            overflow: hidden;
+            position: relative;
+            /* 不让文字被选中 */
+            user-select: none;
+        }
+        #scroll {
+            width: 18px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #eee;
+        }
+        #content {
+            padding: 5px 20px 18px 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #bar {
+            height: 100px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #0f0;
+            border-radius: 10px;
+            /* cursor: pointer; */
+        }
+
+        #scroll_f {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 18px;
+            width: 100%;
+            background-color: #eee;
+        }
+        #bar_f {
+            height: 100%;
+            width: 100px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: #0f0;
+            border-radius: 10px;
+            /* cursor: pointer; */
+        }
+    </style>
+</head>
+<body>
+    <div id = 'box'>
+        <div id='content'>
+                我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏我要玩游戏
+        </div>
+   
+        <div id="scroll">
+            <div id="bar"></div>
+        </div>
+
+        <div id="scroll_f">
+                <div id="bar_f"></div>
+            </div>
+    </div>  
+    <script>
+        var box = document.getElementById('box');
+        var content = document.getElementById('content');
+        var scroll = document.getElementById('scroll');
+        var bar = document.getElementById('bar');
+
+        var barf = document.getElementById('bar_f');
+        var scrollf = document.getElementById('scroll_f');
+
+        var barfh = box.offsetHeight / content.offsetHeight * scrollf.offsetWidth;
+            if(content.offsetHeight < box.offsetHeight){
+                barfh = 0;
+            }
+            barf.style.width =barfh  +  "px";
+            console.log(barfh);
+            console.log(scrollf.offsetWidth);
+            console.log(box.offsetHeight / content.offsetHeight);
+            
+            
+        var barh = box.offsetHeight / content.offsetHeight * scroll.offsetHeight;
+            if(content.offsetHeight < box.offsetHeight){
+                barh = 0;
+            }
+        bar.style.height =barh  +  "px";
+            console.log(barfh);
+            console.log(scrollf.offsetWidth);
+            console.log(box.offsetHeight / content.offsetHeight);
+
+        bar.onmousedown = function (e) {
+            //var x = e.pageX - bar.offsetLeft;
+            var y = e.pageY - bar.offsetTop;
+            document.onmousemove = function(e){
+                var my = e.pageY - y;
+                var my = Math.max(0,my);
+                var my = Math.min(scroll.offsetHeight-barh,my);
+                // my = 滚动条移动
+                bar.style.top = my  + "px"; 
+                //内容最大滚动距离 = 内容高 - 盒子的高
+                var contentMax =content.offsetHeight -  box.offsetHeight ;
+          
+                //滚动最大距离 = 滚动栏高 - 滚动条高 
+                var barMax = scroll.offsetHeight -  barh;
+    
+                //内容移动 = 内容最大滚动距离 * 滚动最大距离/ 滚动条移动
+                content.style.top = - contentMax * my / barMax + "px";
+
+            }             
+        }
+        barf.onmousedown = function (e) {
+            //var x = e.pageX - bar.offsetLeft;
+            var x = e.pageX - barf.offsetLeft;
+            document.onmousemove = function(e){
+                var mx = e.pageX - x;
+                var mx = Math.max(0,mx);
+                var mx = Math.min(scrollf.offsetWidth-barh,mx);
+                // my = 滚动条移动
+                barf.style.left = mx  + "px"; 
+                //内容最大滚动距离 = 内容高 - 盒子的高
+                var contentMax =content.offsetHeight -  box.offsetHeight ;
+          
+                //滚动最大距离 = 滚动栏高 - 滚动条高 
+                var barMax = scrollf.offsetLeft -  barfh;
+    
+                //内容移动 = 内容最大滚动距离 * 滚动最大距离/ 滚动条移动
+                content.style.top = contentMax * mx / barMax + "px";
+                console.log(contentMax * mx / barMax );
+                
+
+            }             
+        }
+
+        document.onmouseup =function(){
+            document.onmousemove =null;
+        }
+
+        
+
+
+    </script>
+</body>
+</html>

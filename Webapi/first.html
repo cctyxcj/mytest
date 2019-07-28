@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function (){
+            var as = document.getElementById('as');
+            console.log(as);
+            as.children[1].innerText = "<i>2</i>$";
+            as.children[1].style.display = "none";
+            console.log(as.children[1].innerHTML);
+            //console.log(as.classList);
+            as.childNodes[0].data='asd';
+            console.log(as.childNodes);
+            
+            var li = document.getElementsByClassName('sd')[0];
+            console.log(li.classList);
+            var input = document.getElementsByTagName("input")[0];
+            input.disabled = true;
+        }
+    </script>
+</head>
+<body>
+    <ul id="as">
+        dsf
+        <li class="sd sas df sd">1</li>
+        sdf
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+    <input type="text">
+</body>
+</html>

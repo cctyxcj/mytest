@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="" id="">男
+    <input type="checkbox" name="" id="">女
+    <input type="checkbox" name="" id="">妖
+    <br>
+    <button id="qx">全选</button>
+    <button id="qbx">全不选</button>
+    <button id="fx">反选</button>
+
+    <script>
+        var is = document.querySelectorAll('input');
+        document.querySelector('#qx').onclick = function (){
+            for(var i = 0 ; i <is.length;i++){
+                is[i].checked = true;
+            }
+        }
+        document.querySelector('#qbx').onclick = function (){
+            for(var i = 0 ; i <is.length;i++){
+                is[i].checked = false;
+            }
+        }
+        document.querySelector('#fx').onclick = function (){
+            for(var i = 0 ; i <is.length;i++){
+                is[i].checked = !is[i].checked;
+            }
+        }
+    </script>
+</body>
+</html>

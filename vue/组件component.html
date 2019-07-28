@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+    <script src="js/vue-router-3.0.1.js"></script>
+    <style>
+            .header {
+              border: 1px solid red;
+            }
+        
+            .content{
+              display: flex;
+            }
+            .sidebar {
+              flex: 2;
+              border: 1px solid green;
+              height: 500px;
+            }
+            .mainbox{
+              flex: 8;
+              border: 1px solid blue;
+              height: 500px;
+            }
+          </style>
+</head>
+<body>
+        <div id="app">
+                <router-view></router-view>
+                <div class="content">
+                  <router-view name="a"></router-view>
+                  <router-view name="b"></router-view>
+                </div>
+              </div>
+    <script>
+            var header = Vue.component('header', {
+              template: '<div class="header">header</div>'
+            });
+        
+            var sidebar = Vue.component('sidebar', {
+              template: '<div class="sidebar">sidebar</div>'
+            });
+        
+            var mainbox = Vue.component('mainbox', {
+              template: '<div class="mainbox">mainbox</div>'
+            });
+        
+            // 创建路由对象
+            var router = new VueRouter({
+              routes: [
+                {
+                  path: '/', components: {
+                    default: header,
+                    a: sidebar,
+                    b: mainbox
+                  }
+                }
+              ]
+            });
+        
+            // 创建 Vue 实例，得到 ViewModel
+            var vm = new Vue({
+              el: '#app',
+              data: {},
+              methods: {},
+              router
+            });
+          </script>
+</body>
+</html>

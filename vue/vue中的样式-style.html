@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 对象是无序键值对的集合 -->
+        <!-- 如果属性里有- 则要引号引起了 -->
+        <h1 :style="{ color:gren , 'font-weight':200}">不知火  希望你直接到我碗里来~~~哭泣泣~</h1>
+        <h1 :style="[style1 ,style2  ]">不知火  希望你直接到我碗里来~~~哭泣泣~</h1>
+
+
+    </div>
+    <script>
+
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                style1:{color:'green' , 'font-weight':200},
+                style2:{'font-style':'italic'},
+                gren:'red'
+
+            },
+            methods:{
+            }
+        })    
+    </script>
+</body>
+</html>

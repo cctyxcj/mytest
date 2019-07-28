@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            width: 600px;
+            margin: 0 auto;
+        }
+        .content div{
+            background-color: rgba(0,255,0,.1);
+            width: 80px;
+            text-align: center;
+            display: inline-block;
+            margin-left: 5px;
+            margin-top: 5px;
+            border: 1px solid #00f;
+            border-radius: 10px;
+        }
+
+        .btn{
+            margin: 100px auto;
+            display: block;
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    <button class="btn">开始</button>
+    <script>
+        var arr = ['魔兽争霸','牧场物语','火焰纹章','口袋妖怪','lol','阴阳师','魔兽争霸','牧场物语','火焰纹章','口袋妖怪','lol','阴阳师',
+                '魔兽争霸','牧场物语','火焰纹章','口袋妖怪','lol','阴阳师','魔兽争霸','牧场物语','火焰纹章','口袋妖怪','lol','阴阳师',
+                '魔兽争霸','牧场物语','火焰纹章','口袋妖怪','lol','阴阳师','魔兽争霸','牧场物语','火焰纹章','口袋妖怪','lol','阴阳师'];
+        var content = document.getElementsByClassName('content')[0];
+        var timeId;
+        for(var i = 0; i<arr.length;i++){
+            var div = document.createElement('div');
+            div.innerText = arr[i];
+            content.appendChild(div);
+        }
+        var btn = document.getElementsByClassName('btn')[0];
+        btn.onclick = function (){
+            if(btn.innerText == "开始"){
+                btn.innerText = "停止";
+                timeId = setInterval(dingm,50)
+            }else {
+                btn.innerText = "开始";
+                btn.disabled = true;
+                clearInterval(timeId);
+                timeId = setInterval(dingm,100);
+                setTimeout(function(){
+                    clearInterval(timeId);
+                    timeId = setInterval(dingm,200);
+                },1000);
+                setTimeout(function(){
+                    clearInterval(timeId);
+                    btn.disabled = false;
+                    alert(dv[index].innerText);
+                },3000);
+            }
+        }
+        var dv = content.children;
+        var index = 0;
+        var max = dv.length;
+        function dingm(){
+            dv[index].style.backgroundColor = "rgba(0,255,0,.1)";
+            index ++;
+            if(index == max){
+                index = 0;
+            }
+            dv[index].style.backgroundColor = "red";
+        }
+        
+    </script>
+</body>
+</html>

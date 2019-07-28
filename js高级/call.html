@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //call 变回this 且立即执行方法
+        var obj = {name : 'zs'};
+        function cal(){
+            console.log(this);
+            
+        }
+        cal.call(obj);
+        function cal2(){
+            console.log(this);
+        }
+
+        var arr = [13,15,748,121];
+
+        var arr_S =  Array.prototype.join.call(arr , "x");
+        console.log(arr_S);
+        
+    </script>
+</body>
+</html>

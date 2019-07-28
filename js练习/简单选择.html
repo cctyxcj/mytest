@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id='btn'>000</button>
+    <select  id="ds">
+        <option value="1">111</option>
+        <option value="2">222</option>
+        <option value="3">333</option>
+        <option value="4">444</option>
+        <option value="5">555</option>
+    </select>
+    <script>
+        var btn=document.getElementById('btn');
+        btn.onclick=function(){
+        var ds = document.getElementById('ds');
+        var sd= document.getElementsByTagName('option');
+            var ra=parseInt(Math.random()*5);
+            var oj=sd[ra];
+            oj.selected=true;
+        }
+
+        var s = prompt("shuruxx");
+        console.log(s);
+
+        var isb = confirm('li');
+        console.log(isb);
+    </script>
+</body>
+</html>

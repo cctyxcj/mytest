@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @media screen and (min-width:1200px){
+            div::after{
+                content: "我";
+                font-size: 250px;
+                color: #0f0;
+            }
+        }
+        @media screen and (min-width:800px) and (max-width:1100px) {
+            div::after{
+                content: "你";
+                font-size: 250px;
+                color: #0f0;
+            }
+        }
+        @media screen and (max-width:800px) {
+            div::after{
+                content: "他";
+                font-size: 250px;
+                color: #0f0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

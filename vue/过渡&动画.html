@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+    <style>
+        .v-leave,.v-enter-to{
+            opacity: 1;
+            transform: translate(0,0) rotate(0deg)
+        }
+        .v-leave-active,.v-enter-active{
+            transition : all 1s; 
+        }
+        .v-leave-to,.v-enter{
+            opacity: 0;
+            transform: translate(0,100px) rotate(15deg)
+        }
+        .my-leave,.my-enter-to{
+            opacity: 1;
+            transform: translate(0,0) rotate(0deg)
+        }
+        .my-leave-active,.my-enter-active{
+            transition : all 1s; 
+        }
+        .my-leave-to,.my-enter{
+            opacity: 0;
+            transform: translate(100px,0px) rotate(-15deg)
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="ss">
+            x
+        </button>
+        <transition>
+        <h1  v-if="s">
+            {{msg}}
+        </h1></transition>
+
+        <transition name='my'>
+                <h1 v-if="s">
+                    {{msg}}
+                </h1></transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+           data:{
+               msg:"ssss",
+                s:true
+           },
+           methods:{
+               ss(){
+                   this.s=!this.s
+               }
+           }
+        })    
+    </script>
+</body>
+</html>

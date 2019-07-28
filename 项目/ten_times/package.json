@@ -1,0 +1,27 @@
+{
+  "name": "ten_times",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --port 8847"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^2.1.1",
+    "jquery": "^3.4.1",
+    "style-loader": "^0.23.1",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.0",
+    "vue-router": "^3.0.6",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.6.0"
+  },
+  "devDependencies": {
+    "vue-template-compiler": "^2.6.10"
+  }
+}

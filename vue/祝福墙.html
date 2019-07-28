@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: url(img/bg.gif);
+            font-size: 13px;
+        }
+        #content{
+            margin: 0 auto;
+            height: 662px;
+            width: 940px;
+            background: url(img/content_bg.jpg);
+            background-size: 100%;
+            position: relative;
+        }
+        .clearfix::after {
+            content: ".";
+            clear: both;
+            display: block;
+            height: 0;
+            visibility: hidden;
+        }
+        .clearfix {
+            *zoom: 1;
+        }
+        .tip {
+            position: absolute;
+            width: 227px;
+            /* top: 50px;
+            left: 50px; */
+
+        }
+        .tip_h {
+            background: url(img/tip1_h.gif) no-repeat; 
+            padding-top: 50px;
+            
+        }
+        .tip_h div{
+            float: left;
+            margin-left: 10px;
+        }
+        .tip_h div.close {
+            float: right;
+            margin-right:15px ;
+            cursor: pointer;
+        }
+        .tip_c {
+            background: url(img/tip1_c.gif);
+            min-height: 40px;
+            padding-top: 20px;
+            padding-left:15px ;
+            padding-right:15px ;
+            /* box-sizing: border-box; */
+        }
+
+        .tip_f {
+            background: url(img/tip1_f.gif);
+            height: 73px;
+        }
+        .tip_f img{
+            float: left;
+            margin-left: 10px;
+        }
+        .tip_f #name{
+            float:right;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+     <div id = "content">
+       <div v-for="item in messages" id='tip' class='tip' v-getrandom @click=" upZindex" :key="item.id">
+            <div  class="tip_h clearfix" @dblclick="del(item.id)">
+                <div >第[{{item.id}}]条</div>
+                <div id='time'>{{item.time}}</div>
+                <div class="close" @click="del(item.id)">x</div>
+            </div>
+            <div class="tip_c">
+                    {{item.content}}
+            </div>
+            <div  class="tip_f clearfix" >
+                <img src="img/bpic_1.gif" alt="" >
+                <div id="name" >
+                        {{item.name}}
+                </div>
+            </div>
+        </div> 
+
+    </div>
+    <script>
+        //自定义指令
+        Vue.directive('getrandom',{
+            //被创建
+            bind:function(el){
+            },
+            //被插入
+            inserted:function(el){
+                el.style.left = parseInt(Math.random()*734) + "px";
+                el.style.top = parseInt(Math.random()*441) + "px";
+            },
+            //被更新
+            updated:function(){
+
+            }
+        })
+        var vm = new Vue({
+            el:'#content',
+            data:{
+                messages : [
+                    { "id": 1, "name": "张学友", "content": "刘德华说的对", "time": "2017-12-26 00:00:00" },
+                    { "id": 2, "name": "刘德华", "content": "周林林比林利群帅", "time": "2017-12-25 12:40:00" },
+                    { "id": 3, "name": "郭富城", "content": "我认同张学友说的", "time": "2017-12-25 12:45:00" },
+                    { "id": 4, "name": "林利群", "content": "把朋友家厕所拉堵了 不敢出去 掏了半小时了都", "time": "2017-12-24 12:40:00" },
+                    { "id": 5, "name": "周林林", "content": "师者，所以传道受业解惑也。", "time": "2016-02-22 12:40:00" },
+                    { "id": 6, "name": "紫霞", "content": "至尊宝，等我", "time": "2017-12-23 09:30:00" },
+                    { "id": 7, "name": "孙悟空", "content": "吃俺老孙一棒！", "time": "2017-12-23 09:30:00" },
+                    { "id": 8, "name": "某某", "content": "旋转，跳跃，我不停歇…………舞娘的喜悲没人看见", "time": "2017-12-26 01:30:00" },
+                    { "id": 9, "name": "哎呦哎呦", "content": "今天谁的礼物最好看！！？答：朋友圈。。。", "time": "2017-12-25 20:30:00" }
+                ],
+                index:0
+            },
+            methods:{
+                del(id){
+                    this.messages.some((item,i)=>{
+                        if(item.id == id){
+                            this.messages.splice(i,1);
+                        }
+                    });
+                },
+                upZindex(e){
+                    this.index++;
+                    console.log(e.target.style.zIndex );
+                    e.currentTarget.style.zIndex = this.index;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算机</title>
+</head>
+<body>
+    <script>
+        function getNum(i){
+            var num = prompt("请输入第"+i+"个数");
+            while (isNaN(num)){
+                num = prompt("请输入正确的数字");
+            }
+            return parseFloat(num);
+        }
+
+        var biaoge = "请根据序号输入操作\t\n1.加法\t\n2.减法\t\n3.乘法\t\n4.除法\t\n5.退出";
+        var sum ;
+        var isC = true;
+        do{
+            var caozuo = prompt(biaoge);
+            switch(caozuo){
+                case "1" :
+                    sum = getNum(1)+getNum(2);
+                    alert(sum);
+                    break;
+                case "2" :
+                    sum = getNum(1)-getNum(2);
+                    alert(sum);
+                    break;
+                case "3" :
+                    sum = getNum(1)*getNum(2);
+                    alert(sum);
+                    break;
+                case "4" :
+                    sum = getNum(1)/getNum(2);
+                    alert(sum);
+                    break;
+                case "5" :
+                    isC = false;
+                    break;
+                default : 
+                    alert("请输入正常的操作");
+                }
+        }while(isC);
+        
+    </script>
+</body>
+</html>

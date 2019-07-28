@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .seach {
+            margin: 200px auto;
+            width: 300px;
+            position: relative;
+        }
+        #st {
+            width: 250px;
+        }
+        ul{
+            position: absolute;
+            width: 254px;
+            top:22px;
+            left: 0px;
+            background-color: #0f0;
+        }
+        li{
+            list-style: none;
+            text-align: left;
+        }
+        li:hover {
+            background-color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="seach">
+        <input id ='st' type="text">
+        <ul id="souyi">
+
+            </ul>
+    </div>
+    
+    <script>
+        // var str = '往狼';
+        // var i = str.indexOf('狼');
+        //onkeyup
+        var st = document.getElementById('st');
+        var souyi = document.getElementById('souyi');
+        var arrS = ["asd","sd","sdf","fdsg","dsfg","fdg","sdf","e","d","龙凤","龙口","龙骨","龙漆","单位","位置"];
+
+        st.onkeyup = function(){
+            var data = st.value;
+            souyi.innerHTML = "";
+            if(st.value == ""){
+                return;
+            }
+            for(var i = 0 ; i< arrS.length; i++){
+                if(arrS[i].indexOf(data)>=0){
+                    var li = document.createElement('li');
+                    souyi.appendChild(li);
+                    li.innerText=arrS[i];
+                    li.onclick = function(){
+                        st.value = this.innerText;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

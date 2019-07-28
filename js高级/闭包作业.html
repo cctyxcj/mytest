@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function bibao() {
+            var name = 'ccty';
+            var level = 'sss';
+            return {
+                setName :function(value){
+                    if(value.indexOf('ccty') != -1 ){
+                    name = value;
+
+                    }
+                },
+                getName :function(){
+                    return name;
+                },
+                setLevel :function(value){
+                    level = value
+                },
+                getLevel :function(){
+                    return level
+                }
+            }
+        }
+        // var s = bibao();
+        // console.log(s.getLevel());
+        // console.log(s.getName());
+        // s.setName('xcjccty');
+        // s.setLevel('ssss');
+        // console.log(s.getLevel());
+        // console.log(s.getName());
+        
+    </script>
+</body>
+</html>

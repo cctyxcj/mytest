@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            margin: 50px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th{
+            color: white;
+            font-weight: bold;
+            background-color: #0199cb;
+        }
+        td{
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="qxhb">全选/全不选
+                </th>
+                <th>菜名</th>
+                <th>商家</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" id="ct"></td>
+                <td>红烧肉</td>
+                <td>隆江猪脚饭</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="ct"></td>
+                <td>香酥排骨</td>
+                <td>隆江猪脚饭</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="ct"></td>
+                <td>北京烤鸭</td>
+                <td>隆江猪脚饭</td>
+                <td>0.5</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var cx = document.querySelector('#qxhb');
+        var ct = document.querySelectorAll('#ct');
+        // console.log(ct);
+        // for (var i in ct){
+        //     console.log("执行了"+i);
+        // }
+        // cx.setAttribute("as","Assa");
+        cx.onclick = function(){
+            for(var i = 0 ; i<ct.length;i++){
+                ct[i].checked = this.checked ; 
+                //console.log("执行了");
+            }
+        }
+        
+        
+
+        for(var i = 0 ; i<ct.length;i++){
+            ct[i].onclick = function(){
+                // if(!this.checked){
+                //     cx.checked=this.checked;
+                // }else{
+                    cx.checked=true;
+                    for(var j = 0 ; j<ct.length;j++){
+                        if(!ct[j].checked){
+                            cx.checked=false;
+                        }
+                    }
+
+                //}
+                    
+            }
+        }
+
+    </script>
+</body>
+
+</html>

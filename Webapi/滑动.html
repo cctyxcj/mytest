@@ -1,0 +1,90 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/animate.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            float: left;
+            height: 50px;
+            line-height: 50px;
+            list-style: none;
+            width: 100px;
+            border: 1px solid #f00;
+            box-sizing: border-box;   
+        }
+        .box {
+            margin: 30px auto;
+            position: relative;
+            width: 500px;
+        }
+        .fuyun{
+            position: absolute;
+            width: 100px;
+            background-color:rgba(0,255,0,.5);
+            height: 50px;
+            /* 不接受任何鼠标事件 */
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="fuyun"></div>
+        <ul>
+            <li>路飞</li>
+            <li>娜美</li>
+            <li>乔巴</li>
+            <li>索罗</li>
+            <li>山治</li>
+        </ul>
+        
+    </div>
+    <script>
+        var fuyun = document.getElementsByClassName('fuyun')[0];
+        var li = document.getElementsByTagName('li');
+        // li.some(item=>{
+        //     console.log(item);
+            
+        // });
+
+
+        // Array.prototype.some.call(li,(item=>{
+        //     console.log(item.offsetLeft);
+        //     item.onmouseover = function(){
+        //         console.log('经过了');
+        //         animate(fuyun,item.offsetLeft);
+        //     }
+        //     item.onmouseout = ()=>{
+        //         console.log(item);
+                
+        //         //animate(fuyun,0);
+        //     }
+        // })
+        // )
+
+        for (let index = 0; index < li.length; index++) {
+            li[index].onmouseover = function () {
+                console.log('over');
+                
+                animate(fuyun,this.offsetLeft);
+            }
+            li[index].onmouseout = function () {
+                console.log('out');
+
+                animate(fuyun,0);
+            }
+            
+            
+        }
+        
+    </script>
+</body>
+</html>

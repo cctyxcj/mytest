@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #d{
+            position: absolute;
+            display: none;
+        }
+        body {
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <img src="timg.jpg" id='d' height="50px" width="50px">
+    <script>
+        var aa;
+        var d = document.getElementById('d');
+        document.onmousemove= function(e){
+            e = e || window.event;
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop ||0;
+            var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft ||0;
+            aa = e.clientY;
+            d.style.top  = e.clientY + scrollTop +'px';
+            d.style.left = e.clientX + scrollLeft + 'px';
+            console.log(aa);
+            
+        }
+        
+        document.onscroll = function(e){
+            e = e || window.event;
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop ||0;
+            d.style.top = aa + scrollTop +'px';          
+            console.log(aa);
+            //console.log(scrollTop);
+            
+            
+        }
+    </script>
+</body>
+</html>

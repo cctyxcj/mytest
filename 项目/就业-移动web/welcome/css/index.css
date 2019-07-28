@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+input {
+  border: none;
+  outline: none;
+}
+i {
+  font-style: normal;
+}
+img {
+  border: none;
+  vertical-align: middle;
+}
+li {
+  list-style: none;
+}
+body {
+  font-size: 12px;
+  line-height: 1;
+}
+.clearfix::after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix {
+  *zoom: 1;
+}
+.my_yaout {
+  max-width: 414px;
+  min-width: 320px;
+  height: 17.78125rem;
+  background: linear-gradient(-45deg, #3878cc, #6dcab7);
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.my_yaout h1 {
+  font-size: 1.046875rem;
+  color: white;
+  margin-top: 4.265625rem;
+  text-shadow: 1px 0 0 0 #000000;
+}
+.my_yaout .login_text {
+  width: 7.40625rem;
+  height: 1.21875rem;
+  border-radius: 0.46875rem;
+  position: absolute;
+  top: 7.703125rem;
+  left: 50%;
+  transform: translate(-50%);
+  border: 1px solid white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.my_yaout .login_text input {
+  width: 100%;
+  height: 100%;
+  padding-left: 0.5625rem;
+  background: none;
+}
+.my_yaout .login_text ::-webkit-input-placeholder {
+  color: white;
+}
+.my_yaout .password {
+  width: 7.40625rem;
+  height: 1.21875rem;
+  border-radius: 0.46875rem;
+  position: absolute;
+  top: 9.359375rem;
+  left: 50%;
+  transform: translate(-50%);
+  border: 1px solid white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.my_yaout .password input {
+  width: 100%;
+  height: 100%;
+  padding-left: 0.5625rem;
+  background: none;
+}
+.my_yaout .password ::-webkit-input-placeholder {
+  color: white;
+}
+.my_yaout .login_btn {
+  position: absolute;
+  bottom: 5.53125rem;
+  left: 50%;
+  transform: translate(-50%);
+  width: 7.40625rem;
+  height: 1.21875rem;
+  border-radius: 0.46875rem;
+  background-color: #56B3F5;
+  text-align: center;
+}
+.my_yaout .login_btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 0.484375rem;
+  line-height: 1.21875rem;
+  color: white;
+}
+.my_yaout .last {
+  position: absolute;
+  bottom: 4.828125rem;
+  text-align: center;
+  width: 100%;
+}
+.my_yaout .last a {
+  color: white;
+  font-size: 0.328125rem;
+}
+.my_yaout .last span {
+  margin-left: 0.15625rem;
+  margin-right: 0.15625rem;
+  display: inline-block;
+  margin-bottom: -0.046875rem;
+  width: 1px;
+  height: 0.328125rem;
+  background-color: white;
+}

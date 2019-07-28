@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top" id="topPart">
+    <img id="pic" src="images/top.png" alt=""/>
+</div>
+
+<div class="nav" id="navBar">
+    <img src="images/nav.png" alt=""/>
+</div>
+
+<div class="main" id="mainPart">
+    <img src="images/main.png" alt=""/>
+</div>
+
+<script>
+    window.onload = function(){
+        var tops = document.getElementsByClassName('top')[0];
+    var nav = document.getElementById('navBar');
+    var main = document.getElementById('mainPart');
+    console.log(tops.offsetHeight);
+    
+    window.onscroll = function(){
+        var srollTop = window.pageYOffset||document.srollTop||document.documentElement.scrollTop ||0;
+        //console.log(srollTop);
+        
+        console.log(tops.offsetHeight);
+        if(srollTop >= tops.offsetHeight){
+            nav.classList.add('fixed');
+            main.style.marginTop = nav.offsetHeight+10 +"px";
+        }else{
+            nav.classList.remove('fixed');
+            main.style.marginTop =10 +"px";
+        }
+    }
+    }
+</script>
+
+</body>
+</html>

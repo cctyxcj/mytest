@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>日向猫宫</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .itemBox{
+            width: 1050px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .item{
+            border: 1px solid #eee;
+            padding: 4px;
+            position: absolute;
+            width: 18%;
+        }
+        .item img{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="itemBox">
+        <div class="item">
+            <img src="img/1.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/3.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/4.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/5.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/6.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/7.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/8.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/9.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/0.jpg" alt="">
+        </div>
+        <div class="item">
+                <img src="img/1.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="img/2.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="img/3.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="img/4.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="img/5.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="img/6.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="img/7.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="img/8.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="img/9.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="img/0.jpg" alt="">
+            </div>
+    </div>
+    <script>
+        window.onload=function(){
+
+        var itemBox = document.getElementsByClassName('itemBox')[0];
+        var item = document.getElementsByClassName('item');
+        //1获取到大盒子 itembox的宽度
+        var itemBoxW = itemBox.offsetWidth;
+        //2获取到小图片盒子 Item的宽度
+        var itemW = item[0].offsetWidth;
+        //3求出列数
+        var column=parseInt(itemBoxW / itemW);
+        
+        //4 求出间距
+        var distence = (itemBoxW - itemW * column ) / ( column - 1);
+        console.log(distence);
+        //5实现瀑布流布局的方法
+        //创建一个数组存放图片的高度
+        var arr = [];
+        waterFull();
+        //6滚动时加载数据
+        window.onscroll = function(){
+            if(window.pageYOffset + window.innerHeight > getMin(arr).minV){
+                var json = [
+                    {"src":"./img/1.jpg"},
+                    {"src":"./img/2.jpg"},
+                    {"src":"./img/3.jpg"},
+                    {"src":"./img/4.jpg"},
+                    {"src":"./img/5.jpg"},
+                    {"src":"./img/6.jpg"},
+                    {"src":"./img/7.jpg"},
+                    {"src":"./img/8.jpg"},
+                    {"src":"./img/9.jpg"},
+                    {"src":"./img/0.jpg"}
+                ];
+                for(var i=0;i<json.length;i++){
+                    var div = document.createElement('div');
+                    div.className='item';
+                    var img =document.createElement('img');
+                    img.src=json[i].src;
+                    div.appendChild(img);
+                    itemBox.appendChild(div);
+                }
+                waterFull();
+            }
+        }
+        //实现瀑布流布局的方法
+        function waterFull(){
+            console.log(item);
+            
+            for(var i=0; i<item.length ; i++){
+                if(i < column){
+                    item[i].style.left = (itemW + distence) *i +"px";
+                    arr[i] = item[i].offsetHeight;
+                    console.log(arr);
+                }else{
+                   var minI = getMin(arr).minI; 
+                   var minV = getMin(arr).minV;
+                    item[i].style.left = (itemW + distence) *minI +"px"
+                    item[i].style.top = minV + distence /2 + "px";
+                    arr[minI] = item[i].offsetHeight + minV + distence /2;
+                }
+            }
+        }
+
+        //获取最小值和他的索引
+        function getMin(arr){
+            var obj={};
+            obj.minV = arr[0];
+            obj.minI=0;
+            for(var i =1;i<arr.length;i++){
+                if(obj.minV > arr[i] ){
+                    obj.minV = arr[i];
+                    obj.minI=i;
+                }
+            }
+            return obj;
+        }
+        }
+    </script>
+</body>
+
+</html>

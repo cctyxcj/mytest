@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+    <style>
+        .red{
+            color: red;
+        }
+        .active{
+            letter-spacing: 2em;
+        }
+        .thin {
+            font-weight: 200;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 数组 -->
+        <h1 :class='["red","thin"]'>我想要玩游戏  不想学习了!!!~</h1>
+        <!-- 数组中使用三元表达式 -->
+        <h1 :class='["red","thin",flag?"active":""]'>我想要玩游戏  不想学习了!!!~</h1>
+        <!-- 数组中嵌套对象 -->
+        <h1 :class='["red",{"thin":flag},"active"]'>我想要玩游戏  不想学习了!!!~</h1>
+        <!-- 直接使用对象 -->
+        <h1 :class='{red : true , thin : false , active : true}'>我想要玩游戏  不想学习了!!!~</h1>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                flag:true
+            },
+            methods:{
+            }
+        })    
+    </script>
+</body>
+</html>

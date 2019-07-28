@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Animal(sex,age){
+            this.sex = sex;
+            this.age =age;
+        }    
+        Animal.prototype.eatFood=function(){
+            console.log("吃东西");
+            
+        }
+        function Dog(sex,age,maose){
+            this.maosse=maose;
+            Animal.call(this,sex,age);
+        }
+        Dog.prototype.kanjia = function(){
+            console.log("看家");
+        }
+        for(var key in Animal.prototype){
+            if(!(key in Dog.prototype)){
+                Dog.prototype[key]=Animal.prototype[key];
+            }
+        }
+        var d = new Dog('雌','2','棕色');
+        console.log(d);
+        d.kanjia();
+        d.eatFood();
+    </script>
+</body>
+</html>

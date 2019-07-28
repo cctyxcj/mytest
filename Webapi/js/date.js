@@ -1,0 +1,1 @@
+function getInterval(start ,end )

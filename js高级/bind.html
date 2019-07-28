@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //bind 改变方法this的指向  不执行方法
+        // var obj = {
+        //     name: 'zs',
+        //     mybind: function () {
+        //         setInterval(function () {
+        //             console.log(this.name);
+
+        //         }.bind(this), 1000);
+        //     }
+        // }
+        // obj.mybind();
+        var obj1 = {name : 'cc'};
+        var fbind = function () {
+            console.log("引用类型匿名函数" + this);
+            
+        }.bind(obj1);
+        
+        fbind();
+
+        
+       
+
+        // var fbindn= fbind.bind(Window);
+        // fbindn();
+
+        // function fbind2() {
+        //     console.log("引用类型函数"+this);
+        // }
+
+        // var fbind2n = fbind2.bind(obj);
+        // fbind2();
+        // fbind2n()
+
+
+        
+        // ;(function () {
+        //     console.log("自调用匿名函数:" + this);
+        // }.bind(obj)()
+        // )
+
+
+    </script>
+</body>
+
+</html>

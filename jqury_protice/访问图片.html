@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-1.6.4.js"></script>
+    <script>
+        $(function(){
+            $('#file').change(function(){
+            var url = URL.createObjectURL(this.files[0]);
+            $(this).next('img').attr('src',url);
+            console.log($(this).prev('img'));
+            
+        })
+        })
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+    <input type="file" name=""  id="file">
+    <img src="img/0.jpg" alt="">
+</body>
+</html>

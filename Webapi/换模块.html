@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+         }
+        #topbox{
+            margin: 50px auto;
+            width: 200px;
+            height: 500px;
+            background-color: #ff0;
+        }
+        #topli{
+            width: 100%;
+            height: 20%;
+        }
+        #topli li{
+            float: left;
+            background-color: #0f0;
+            width: 24%;
+            height: 45px;
+            margin-left: 2px;
+            line-height: 45px;
+            text-align: center;
+        }
+
+        #botbox li{
+            display: none;
+        }
+        #botbox #at{
+            display: block;
+        }
+    </style>
+<body>
+    <div id='topbox'>  
+        <ul id ="topli">
+            <li>动漫</li>
+            <li>漫画</li>
+            <li>游戏</li>
+            <li>新闻</li>
+        </ul>
+    <div>
+        <ul id = "botbox">
+            <li id='at'>动漫模块</li>
+            <li>漫画模块</li>
+            <li>游戏模块</li>
+            <li>新闻模块</li>
+        </ul>
+    </div>
+    </div>
+    <script>
+        var topliu = document.getElementById('topli');
+        var index = 0;
+        var botboxu = document.getElementById('botbox');
+        var topli = topliu.children;
+        var botbox = botboxu.children;
+        for(var i = 0 ; i < topli.length;i++){
+            topli[i].ids = i;
+            topli[i].onmouseover = function(){
+                botbox[index].id='';
+                index = this.ids;
+                botbox[index].id='at';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ msg | zhonger}}
+    </div>
+    <script>
+        Vue.filter('zhonger',function(msg){
+            return msg.replace(/中二/g,"天真");
+            //return `${msg}nihao`
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:"曾经,我也是一个中二的少年,中二的我,傻傻的问,谁是这世界上最中二的人"
+            }
+        })
+    </script>
+</body>
+</html>

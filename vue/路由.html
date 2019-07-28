@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+    <script src="js/vue-router-3.0.1.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            transform: translateX(80px);
+            opacity: 0;
+        }
+        .v-enter-active,
+        .v-leave-active {
+            transition: all .4s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <router-link to='/login'>登录</router-link>
+        <router-link to='/register'>注册</router-link>
+        <transition mode='out-in'>
+            <router-view></router-view>
+        </transition>
+    </div>
+    <script>
+        //可 在 父组件中插入子组件 通过
+        var login = {
+            template:'<h3>这是一个登录组件</h3>'
+        }
+        var register = {
+            template:'<h3>这是一个注册组件</h3>'
+        }
+        var router = new VueRouter({
+            routes: [
+                //重定向
+                //默认login
+                {path:'/',redirect:'/login'},
+                //设置路由模块
+                {path:'/login',component: login },
+                {path:'/register',component: register },
+                // 可在<router-view></router-view> 中的name 指定渲染组件
+                // {
+                //     path: '/asd',components:{
+                //         'default': hearder,
+                //         'left': leftBox,
+                //         'main': mainBox
+                //     }
+                // }
+            ],
+            linkActiveClass: 'myactive' // 和激活相关的类
+        })
+        var vm = new Vue({
+            el:"#app",
+            data:{
+            },
+            methods:{
+            },
+            router
+        })    
+    </script>
+</body>
+</html>

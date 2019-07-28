@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //以下全部把功能封装成函数
+        var arr =[15,62,75,156,12,8,2];
+        var arrr=[];
+        for(var i =0 ;i<5 ; i++){
+            arrr[i]=parseInt(Math.random()*80);
+        }
+    // 1.求任意数组中的最大值
+    // 找出数组中的最大值，只不过封装成函数，功能不能单调，意思就是我传入什么数组，就找出什么数组的最大值
+    function findMax(arr){
+        var max = arr[0];
+        for(var i = 1;i<arr.length ;i++ ){
+            if(max < arr[i]){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+    // console.log(findMax(arr));
+   
+    // console.log(findMax(arrr));
+    
+    // 2.求任意数组中的最小值
+    function findMin(arr){
+        var min = arr[0];
+        for(var i = 1;i<arr.length ;i++ ){
+            if(min > arr[i]){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    // console.log(findMin(arr));
+    // console.log(findMin(arrr));
+
+    // 3.反转数组的代码，封装成函数
+    function fanzhuan(arr){
+        var arrn = [];
+        for(var i = arr.length;i > 0  ;i-- ){
+                arrn[arr.length - i] = arr[i-1];
+        }
+        return arrn;
+    }
+    //console.log(fanzhuan(arrr));
+
+    // 4.对数组排序，从小到大（封装成函数）
+    function sort(arr){
+        var arrn = arr;
+        for(var i = 0;i < arrn.length  ;i++ ){
+            for(var j = 0 ; j < arrn.length-1 ; j++){
+                if(arrn[j] > arrn[j+1]){
+                    var vm =arrn[j+1];
+                    arrn[j+1] = arrn[j];
+                    arrn[j]=vm;
+                }
+            }
+        }
+        return arrn;
+    }
+    // console.log(arrr);
+    // console.log(sort(arrr));
+    
+
+    // 5.输入一个年份，判断是否是闰年(能被4整除而不能被100整除.2.能被400整除.)
+    function isR(year){
+        var isR ;
+        if((year % 4 == 0 && year % 100 != 0)|| year % 400 ==0){
+            isR =true;
+        }else{
+            isR = false;
+        }
+        return isR /*? "是闰年" : "不是闰年" */;
+    }
+    // var year = parseInt(Math.random()*3000);
+    // // console.log(year);
+    // // console.log(isR(year));
+    
+    
+
+    // 6.输入某年某月某日，判断这一天是这一年的第几天，封装成函数
+    function howDay (year , month ,day){
+        var gday = +day;
+        for (var i = 1 ; i<month ; i++){
+            switch(i){
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    gday +=31;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    gday +=30;
+                    break;
+                default :
+                    gday +=28;
+            }
+        }
+        if(isR(year)&&month>=3){
+            gday ++;
+        }
+        return gday;
+
+    }
+    console.log("1982-11-50-155,1515".split("1"));
+    
+    console.log( howDay (2012 , 6 ,25));
+    console.log( howDay (101 , 3 ,5));
+    
+
+
+
+    // 可选题：
+    // 8.判断一个数是否是素数
+    // 	素数（质数）：就只能被1和自身整除的数就是素数，例如：7,13
+    // 	1既不是素数也不是合数
+    function isS (num){
+        var isS =false;
+        for(var i =2 ; i< num- 1 ; i++){
+            if(num % i == 0 ){
+                isS = true;
+                break;
+            }
+        }
+        return isS;
+    }
+
+	//console.log(isS (4));
+    
+
+    </script>
+</body>
+</html>

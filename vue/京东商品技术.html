@@ -1,0 +1,112 @@
+2019-06-16 11:23:08
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .mybox {
+            display: flex;
+            margin-top: 5px;
+        }
+        .mybox span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 20px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .mybox input {
+            width: 80px;
+            height: 22px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 20px;
+            box-sizing: border-box;
+        }
+        .v-leave,.v-enter-to{
+            transform: translate(0,0)
+        }
+        .v-leave-active,.v-enter-active{
+            transition : all 1s; 
+        }
+        .v-leave-to,.v-enter{
+            transform: translate(0,10px)
+        }
+        .my-leave,.my-enter-to{
+            transform: translate(0,0)
+        }
+        .my-leave-active,.my-enter-active{
+            transition : all 1s; 
+        }
+        .my-leave-to,.my-enter{
+            transform: translate(0,-10px)
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 以双标签的形式来使用 -->
+        <transition >
+        <mycom  @func='getMsgFromSon'></mycom>
+    </transition>
+    </div>
+</body>
+<script src="./js/vue-2.4.0.js"></script>
+<script>
+    // 定义组件: html, css, js
+    // 单独定义一个组件对象
+    var comp = {
+        // template：设置组件的模块（html, css）
+        template: `<div class="mybox">
+            <span @click="sub">-</span>
+            <input type="text" v-model="num"/>
+            <span @click="add">+</span>
+        </div>`,
+        data: function() {
+            return {
+                num: 100,
+                lan:true
+            }
+        },
+
+        methods: {
+            sub() {
+                
+                this.num --
+                this.getMsg(true)
+            },
+            add() {
+                this.num ++
+                this.getMsg(false)
+            },
+            getMsg: function (s) {
+                    this.lan = s;
+                    this.$emit('func', s);
+                }
+
+
+        }
+    }
+    Vue.component('mycom', comp)
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            wan:true
+        }, methods: {
+                getMsgFromSon(data) {
+                    this.wan = data;
+                    console.log(this.wan);
+                    
+
+                }
+            },
+    })
+</script>
+</html>

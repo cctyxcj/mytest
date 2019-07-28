@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv{
+            width: 100px;
+            height: 100px;
+            left: 800px;
+            background-color: #0f0;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" >移动300</button>
+    <div id='dv'></div>
+    <script src="js/animate.js"></script>
+
+    <script>
+        var dv = document.getElementById('dv');
+
+        document.getElementById('btn').onclick = function(){
+            animate(dv,300);
+        }
+    </script>
+</body>
+</html>

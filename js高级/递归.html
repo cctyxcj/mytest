@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function getFB(n) {
+        //     if(n==1 || n==2){
+        //         return 1;
+        //     }
+        //     return getFB(n-2) + getFB(n-1);
+        // }
+        function create(){
+        var obj = {};
+        function getFB(n){
+            if(obj[n] != undefined){
+                return obj[n];
+            }else {
+                if(n == 1 || n== 2){
+                    obj[n] = 1;
+                    return 1;
+                }
+                obj[n] = getFB(n-1)+ getFB(n-2);
+                return obj[0];
+            }
+        }
+        return getFB;
+    }
+    </script>
+</body>
+</html>

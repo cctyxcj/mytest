@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            {{msg}}
+        </h1>
+    </div>
+    <script>
+        //v-on  方法绑定  可缩写 @  - .stop       阻止冒泡
+                                // - .prevent    阻止默认事件
+                                // - .capture    添加事件侦听器时使用事件捕获模式
+                                // - .self       只当事件在该元素本身（比如不是子元素）触发时触发回调
+                                // - .once       事件只触发一次
+                                
+
+        //v-bind  属性绑定   可有 + 拼接内容   可缩写 :
+        //v-cloak 可以在内容加载前给vue格式的内容加样式   通常隐藏vue格式的内容  解决闪烁问题   css上以 [v-cloak]{...}
+        //v-text / v-html  可添加属性的文本内容  html可解释标签
+        //v-model 双向绑定事件   用户输入内容时可修改vue对象里的data值   经常用于input属性
+        //v-for 遍历数组或者对象
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"神吧"
+            },
+            methods:{
+            },
+            //自定义私有指令
+            directives:{
+
+            },
+            //自定义私有过滤器
+            filters:{
+
+            },
+            //自定义私有组件
+            components:{
+                login:{
+                    //模版
+                    template:''
+                }
+            },
+            //计算属性
+            computed:{
+                "ss":function(){
+                    
+                }
+            },
+            //侦听器
+            watch:{
+
+            },
+            //vm加载完
+            mounter(){
+
+            }
+        })    
+    </script>
+</body>
+</html>

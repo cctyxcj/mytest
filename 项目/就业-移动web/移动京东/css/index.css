@@ -1,0 +1,271 @@
+body{
+    background-color: #f5f5f5;
+}
+.yidongweb{
+    max-width: 414px;
+    min-width: 375px;
+    margin: 0 auto;
+    width: 100%;
+}
+.heardnav{
+    height: 40px;
+    max-width: 414px;
+    min-width: 375px;
+    width: 100%;
+    background-color: #c91523;
+    position: fixed;
+    z-index: 10;
+}
+.heardnav .logo{
+    width: 55px;
+    height: 20px;
+    background:url(../img/jd-sprites.png) 0 -110px;
+    background-size: 200px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.heardnav .search{
+    margin-left: 80px;
+    margin-right: 59px;
+    height:30px ;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 5px;
+    position: relative;
+}
+.heardnav .search input{
+    text-indent: 30px;
+    width: 100%;
+    height: 100%;
+}
+.heardnav .search i{
+    width: 20px;
+    height: 20px;
+    background:url(../img/jd-sprites.png) -60px -110px;
+    background-size: 200px;
+    position: absolute;
+    top: 6px;
+    left: 7px;
+}
+.heardnav .login{
+    position: absolute;
+    right: 18px;
+    top: 0;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+}
+
+
+.jbbanner img{
+    width: 100%;
+}
+
+
+
+
+.jbnav {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+}
+.jbnav ul{
+    width: 100%;
+    height: 100%;
+}
+.jbnav ul li{
+    width: 25%;
+    height:50%;
+    float: left;
+    background-color: #fff;
+}
+.jbnav ul li a{
+    display: block;
+    padding-top: 5px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    color: #666;
+}
+.jbnav ul li img{
+    width: 39px;
+    display: block;
+    margin: 0 auto 5px;
+}
+.jdseckill {
+    height: 205px;
+    width: 100%;
+    background-color: #fff;
+}
+.jdseckill .se_title{
+    height: 35px;
+    position: relative;
+}
+.jdseckill .se_title i.clock{
+    width: 20px;
+    height: 21px;
+    background:url(../img/jd-sprites.png) -83px -110px;
+    background-size: 200px;
+    position: absolute;
+    top: 7px;
+    left: 20px;
+}
+.jdseckill .se_title span{
+    font-size: 13px;
+    color: #ca1327;
+    line-height: 35px;
+    font-weight: bold;
+    position: absolute;
+    left: 45px;
+}
+.jdseckill .se_title ul{
+    position: absolute;
+    left: 110px;
+    top: 10px;
+}
+.jdseckill .se_title ul li{
+    float: left;
+}
+.jdseckill .se_title ul li.num{
+    height: 16px;
+    width: 16px;
+    background-color: #000000;
+    color: white;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 4px;
+}
+.jdseckill .se_title .more{
+    line-height: 34px;
+    position: absolute;
+    right: 40px;
+    color: #666;
+}
+.jdseckill .se_title .more i{
+    position: absolute;
+    width: 8px;
+    height: 14px;
+    background:url(../img/jd-sprites.png) -187px -50px;
+    background-size: 200px;
+    top: 10px;
+    right: -25px;
+}
+.jdseckill .se_list{
+    height: 150px;
+    width: 100%;
+}
+.jdseckill .se_list ul{
+    width: 100%;
+}
+.jdseckill .se_list ul li{
+    width: 33.3333%;
+    float: left;
+
+}
+.jdseckill .se_list ul li a{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+}
+.jdseckill .se_list ul li img{
+    width: 100%;
+}
+.jdseckill .se_list ul li span{
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    color: #ca1327;
+}
+.jdseckill .se_list ul li del{
+    display: block;
+}
+.jdseckill .se_list ul li i{
+    width: 34px;
+    height: 36px;
+    background-color: orange;
+    border-radius: 17px;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    line-height: 36px;
+    display: block;
+    color: white;
+    position: absolute;
+    left: 99px;
+    top: -68px;
+}
+.jdticket{
+    width: 100%;
+    height: 193px;
+    background: url(../uploads/banner_bg.jpg);
+    background-size: 100% 100%;
+
+    position: relative;
+}
+.jdticket .banner{
+    padding: 0 5px;
+    position: absolute;
+    bottom: 5px;
+}
+.jdticket ul{
+    width: 100%;
+    
+}
+.jdticket ul li{
+    float: left;
+    width: 50%;
+}
+.jdticket ul li img{
+    width: 100%;
+} 
+.jdshow{
+   width: 100%;
+    
+}
+.jdshow ul{
+    width: 100%;
+}
+.jdshow ul li{
+    width: 50%;
+    float: left;
+}
+.jdshow ul:first-child li{
+    width: 33.33333%;
+}
+.jdshow ul li a{
+    width: 100%;
+    height: 100%;
+}
+.jdshow ul li a img{
+    width: 100%;
+}
+.jdadvert{
+    padding: 5px;
+    margin-bottom: 44px;
+}
+.jdadvert img{
+    width: 100%;
+}
+.jdhome{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-width: 375px;
+    max-width: 414px;
+    height: 45px;
+    background-color: #fff;
+}
+.jdhome a{
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+.jdhome a img{
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}

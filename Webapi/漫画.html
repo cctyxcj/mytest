@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #all,#select{
+            height: 200px;
+            width: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <select id="all" multiple="multiple">
+        <option>海贼王</option>
+        <option>名侦探柯南</option>
+        <option>蜡笔小新</option>
+        <option>一拳超人</option>
+        <option>咕噜咕噜魔法阵</option>
+    </select>
+
+    <input type="button" value=">>" id="btn1">
+    <input type="button" value="<<" id="btn2">
+    <input type="button" value=">" id="btn3">
+    <input type="button" value="<" id="btn4">
+
+    <select id="select" multiple="multiple">
+
+    </select>
+    <script>
+        var all = document.getElementById('all');
+        var select = document.getElementById('select');
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        var btn3 = document.getElementById('btn3');
+        var btn4 = document.getElementById('btn4');
+        btn1.onclick = function (){
+            console.log(all.children.length);
+            
+            for (var i = all.children.length-1 ; i >= 0 ;i--){
+                var data = all.children[0];
+                //all.removeChild(data);
+                //console.log(data);
+                //console.log(data.parentNode);
+                
+                //data.parentNode = select;
+
+                //console.log( data.parentNode);
+                select.appendChild(data);
+            }
+        }
+        btn2.onclick = function (){
+            for (var i = select.children.length-1 ; i >= 0 ;i--){
+                //var data = select.children[0].cloneNode(true);
+                //select.removeChild(select.children[0]);
+                //console.log(data);
+                var data = select.children[0];
+                all.appendChild(data);
+            }
+        }
+        btn3.onclick = function (){
+            
+            for (var i = all.children.length-1 ; i >= 0 ;i--){
+                var data = all.children[i];
+                if(data.selected){
+                    //all.removeChild(data);
+                    select.appendChild(data);
+                    data.selected = false;
+                }
+            }
+        }
+        btn4.onclick = function (){
+            for (var i = select.children.length-1 ; i >= 0 ;i--){
+                var data = select.children[i];
+                if(data.selected){
+                    //select.removeChild(data);
+                    all.appendChild(data);
+                    data.selected = false;
+                }
+            }
+        }
+    </script>
+</body> 
+</html>

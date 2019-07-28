@@ -1,0 +1,204 @@
+.grid{
+    height: 475px;
+}
+.grid-col1{
+    width: 190px;
+    height: 100%;
+    background-color: #6e6568;
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+}
+.ad-l{
+    position: absolute;
+    width: 250px;
+    height: 480px;
+    top: -10px;
+    left: -250px;
+}
+.ad-r{
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 999;
+    width: 0px;
+    height: 480px;
+    background: url(../images/ad-r.jpg);
+    transition: all 0.6s;
+}
+.ad-l:hover +.ad-r{
+    width: 650px;
+}
+.grid-col1 a{
+    color: #fff;
+    font-size: 14px;
+    margin:0 3px;
+}
+.grid-col1 a:hover{
+    color: #f10215;
+}
+.grid-col1 ul{
+    padding: 10px 0 ;
+}
+.grid-col1 li{
+    padding-left: 12px;
+    height: 29px;
+    line-height: 29px;
+}
+.grid-col1 li:hover{
+    background-color: #9c9698;
+}
+.grid-col2{
+    width: 790px;
+    height: 100%;
+    margin-left: 5px;
+}
+.grid-col2-b div{
+    float: left;
+    margin-top: 10px;
+}
+.grid-col2-b div:last-child{
+    float: right;
+}
+.grid-col2-t{
+    position: relative;
+}
+.arrow-l,.arrow-r{
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 60px;
+    background: rgba(0, 0, 0, .3);
+    color: #fff;
+    line-height: 60px;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial;
+    font-weight: normal;
+}
+.arrow-r{
+    right: 0;
+}
+.circle{
+    height: 20px;
+    width: 175px;
+    background: rgba(255, 255, 255, .2);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    padding-left:12px ;
+}
+.circle li{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    float: left;
+    margin: 4px;
+    cursor: pointer;   /* 鼠标经过变手*/
+} 
+.circle .current{
+    background-color: #f10215;
+}
+.grid-col3{
+    width: 130px;
+    height: 100%;
+    background-color: #888;
+}
+.login{
+    height: 85px;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+    padding: 15px;
+}
+.login-t{
+    width: 55px;
+    height: 60px;
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap; /* 强制一行内显示 */
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    padding-left: 60px;
+    position: relative;
+}
+.user-info{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../images/sprite_userinfo@1x.png)no-repeat -70px 0;
+}
+.user-info img{
+    width: 40px;
+    border-radius: 50%;
+    margin: 5px;
+}
+.login-b a{
+    font-size: 5px;
+    display: inline-block;
+    height: 20px;
+    width: 46px;
+    border:2px solid #f10215;
+    color: #f10215;
+}
+.login-b a:hover{
+    color: #fff;
+    background-color: #f10215;
+}
+.news{
+    height: 155px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    padding:7px 13px 0 ;
+    box-sizing: border-box;
+}
+.new-t{
+    height: 19px;
+    border-bottom: 2px solid #ccc;
+    line-height: 17px;
+    position: relative;
+}
+.new-t a{
+    float: left;
+}
+.new-t .cuixiao{
+    border-right: 1px solid #ccc;
+}
+.new-t .more{
+    float: right;
+    line-height: 17px;
+}
+.new-t div{
+    height: 2px;
+    width: 28px;
+    background-color: #f10215;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+.new-b{
+    padding-top: 15px;
+}
+.new-b li{
+    line-height: 23px;
+}
+.expand{
+    height: 205px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.expand ul{
+    width: 175px;
+}
+.expand li {
+    height: 69px;
+    width: 43px;
+    border-right:1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    float: left;
+}

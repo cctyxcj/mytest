@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .all{
+            width: 300px;
+            height: 200px;
+            padding: 7px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .screen{
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #0f0;
+        }
+        .screen li{
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+        .screen ul{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 30000px;
+        }
+        .all ol{
+            position: absolute;
+            list-style: none;
+            display: flex;
+            top: 217px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .all ol li{
+            width: 20px;
+            height: 20px;
+            background-color: rgba(0,0,0,.2);
+            text-align: center;
+            line-height: 20px;
+            margin-right: 2px;
+            border-radius: 50%;
+            color:white;
+            cursor: pointer;
+            
+        }
+        .all ol li.current{
+            background-color: #0f0;
+        }
+        #arr{
+            display: none;
+            z-index: 1000;
+        }
+        #arr span{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            color: #ddd;
+            background-color: rgba(0,0,0,.2);
+        }
+        #arr #left{
+            left: 5px;
+            left: auto;
+        }
+        #arr #right{
+            right: 6px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="all" id='box'>
+        <!-- 展示图 -->
+        <div class="screen" id="screen">
+            <!-- 轮魔图 -->
+            <ul id="sd">
+                <li><img src="img/1.jpg" width="300px" height="200px" alt=""></li>
+                <li><img src="img/2.jpg" width="300px" height="200px" alt=""></li>
+                <li><img src="img/3.jpg" width="300px" height="200px" alt=""></li>
+                <li><img src="img/4.jpg"  width="300px" height="200px" alt=""></li>
+                <li><img src="img/5.jpg"  width="300px" height="200px" alt=""></li>
+                <li><img src="img/6.jpg"  width="300px" height="200px" alt=""></li>
+                <li><img src="img/7.jpg"  width="300px" height="200px" alt=""></li>
+                <li><img src="img/8.jpg"  width="300px" height="200px" alt=""></li>
+                <li><img src="img/9.jpg"  width="300px" height="200px" alt=""></li>
+               
+            </ul>
+        </div>
+        <ol id="bohao">
+
+        </ol>
+        <!-- 左右箭头 -->
+        <div id="arr">
+            <span id="left">&lt;</span>
+            <span id="right">&gt;</span>
+        </div>
+        </div>
+    <script src="js/animate.js"></script>
+    <script>
+        var box=document.getElementById('box');
+        var ul = document.getElementById('sd');
+        var screen=document.getElementById('screen');
+        var ol= document.getElementById('bohao');
+        var all=document.getElementsByClassName('all');
+        var arr= document.getElementById('arr');
+        var left= document.getElementById('left');
+        var right= document.getElementById('right');
+        var i = 0;
+
+        var width = 300;
+        //console.log(ul.children.length);
+        //console.log(ul.childElementCount);
+        //1动态生成序号 
+        for(var n=0 ;n<ul.childElementCount;n++){
+            var li = document.createElement("li");
+           // console.log(li);
+            ol.appendChild(li);
+            li.innerHTML=n+1;
+            if (n === 0){
+                li.className = 'current';
+            }
+            li.onclick =liClick;
+            li.setAttribute("index",n);
+        }
+        //2点击序号动画的方式切换图片
+            function liClick(){
+                for (var j=0;j<ol.childElementCount;j++){
+                    var li = ol.children[j];
+                    li.className="none";
+                }
+                this.className="current";
+                i = this.innerHTML -1;
+                animate(ul,-width*i);
+                console.log(this.getAttribute("index"));
+            }
+        //3鼠标放到盒子上显示箭头 并停止自动播放  
+        box.onmouseover=function(e){
+        arr.style.display="block";
+            clearInterval(autoani);
+        }
+        //移出时添加自动播放
+        box.onmouseout=function(e){
+        arr.style.display="none";
+            autoani=setInterval(function (){
+            right.click();
+            },3000)
+        }
+        //4实现上一张和下一张的功能
+        //下一张
+        right.onclick=function(){
+            if(i==ul.childElementCount-1){
+                ul.style.left=0;
+                i=0;
+            }
+            i++;
+            animate(ul,-width*i);
+            for (var j=0;j<ol.childElementCount;j++){
+                var li = ol.children[j];
+                li.className="none";
+            }
+            if(i == ol.childElementCount){
+                ol.children[0].className="current";
+            }else{
+                ol.children[i].className="current";
+            }
+        }
+        //上一张
+        left.onclick=function(){
+            if(i==0){
+                i=ul.childElementCount -1;
+                ul.style.left=- i * width + "px";
+            }
+            i--;
+            animate(ul,-width*i);
+            for (var j=0;j<ol.childElementCount;j++){
+                var li = ol.children[j];
+                li.className="none";
+            }
+            ol.children[i].className="current";
+        }
+
+        //实现图片的无缝连接
+        var firstli=all[0].children[0].children[0].children[0];
+        var cloneli = firstli.cloneNode(true);
+        ul.appendChild(cloneli);
+        //5自动切换图片
+        var autoani=setInterval(function (){
+            right.click();     
+        },3000)
+    </script>
+</body>
+</html>

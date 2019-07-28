@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 200px;
+            margin: 300px auto;
+            position: relative;
+        }
+        img{
+            width: 300px;
+            height: 200px;
+            display: block;
+            transition: all 2s;
+            transform-origin: left top;
+            position: absolute;
+        }
+        .box:hover img:nth-child(1){
+            transform: rotate(60deg);
+        }
+        .box:hover img:nth-child(2){
+            transform: rotate(120deg);
+        }
+        .box:hover img:nth-child(3){
+            transform: rotate(180deg);
+        }
+        .box:hover img:nth-child(4){
+            transform: rotate(240deg);
+        }
+        .box:hover img:nth-child(5){
+            transform: rotate(300deg);
+        }
+        .box:hover img:nth-child(6){
+            transform: rotate(360deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+    <img src="../js/timg.jpg" alt="">
+    <img src="../js/timg.jpg" alt="">
+    <img src="../js/timg.jpg" alt="">
+    <img src="../js/timg.jpg" alt="">
+    <img src="../js/timg.jpg" alt="">
+    <img src="../js/timg.jpg" alt="">
+</div>
+</body>
+</html>

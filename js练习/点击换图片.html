@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    var str="";
+        for(var i=1;i<=20;i+=2){
+            for(var j=i/2;j<10;j++){
+                str += " ";
+            }
+            for(var n=0;n<i;n++){
+                str += "*";
+            }
+            str += '\n';
+        }
+        console.log(str);
+    //     var n1 = 1;
+    //     var n2=1;
+    //     var n3;
+    //     for(var i=3;i<=12;i++){
+    //         n3= n1+n2;
+    //         n1=n2;
+    //         n2=n3
+    //     }
+    //     console.log(n3);
+    //    var x= new Date();
+    //    console.log(x.getMonth());
+    
+    </script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        .hidden{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        #d{
+            width: 50px;
+            height: 50px;
+            border: 1px dashed #000;
+        }
+    </style>
+</head>
+<body>
+    <button id='btn' value="点我">dianw</button>
+    <img src="../jingdong/images/ad-l.png" id='img'>
+    <div id='d'></div>
+<script>
+    var btn=document.getElementById('btn');
+    var img =document.getElementById('img');
+    var flag=1;
+    btn.onclick=function(){
+        var d =document.getElementById('d');
+        if(flag==1){
+            img.src='../jingdong/images/ad-r.jpg';
+            flag=2;
+            d.className="hidden";
+            btn.value='点你';
+            btn.textContent="111";
+        }else{
+            img.src='../jingdong/images/ad-l.png';
+            flag=1;
+            d.className="show";
+            btn.value='点我';
+            btn.innerText="222";
+        }
+    }
+</script>
+</body>
+</html>

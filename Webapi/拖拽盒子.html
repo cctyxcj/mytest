@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,div {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 5000px;
+        }
+        div.x {
+            height: 200px;
+            width: 200px;
+            background-color: #0f0;
+            /* position: relative; */
+            z-index: 999;
+        }
+        div.d {
+            height: 500px;
+            width: 300px;
+            border: 1px solid #000;
+            position: absolute;
+            right:20px;
+            top:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="x" draggable="true"></div>
+    <div class="d">
+
+    </div>
+    <script>
+        var x =document.getElementsByClassName('x')[0];
+        var d =document.getElementsByClassName('d')[0];
+        var xleft;
+        var xtop;
+        x.onmousedown = function(e){
+            var rect = x.getBoundingClientRect();
+            xleft = e.clientX - rect.left;
+            xtop = e.clientY - rect.top;
+            console.log(xleft,xtop);
+            
+        }
+        x.ondragend =function (e){
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+            x.style.left = e.clientX +scrollLeft - xleft + 'px';
+            x.style.top = e.clientY +scrollTop  - xtop + 'px';
+            console.log('...');
+        }
+        d.ondragover =function(e){
+            //e.preventDefault();
+            return false;
+        }
+        d.ondrop = function (){
+            d.appendChild(x);
+        }
+    </script>
+</body>
+</html>

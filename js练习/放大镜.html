@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box{
+        height: 200px;
+        width: 300px;
+        background:url(timg.jpg) no-repeat;
+
+        background-size: 300px 200px;
+        top:100px;
+        left: 100px;
+        border: 1px solid green;
+        position: relative;
+    }
+    #d{
+        width: 60px;
+        height: 40px;
+        position: absolute;
+        background: rgba(0, 0, 255,.2 );
+        display: none;
+    }
+    #t{
+        height: 400px;
+        width: 600px;
+        background: url(timg.jpg) no-repeat;
+        position: absolute;
+        display: none;
+        background-size:3000px 2000px;
+        
+        border: 1px solid green;
+        top: 100px;
+        left: 500px;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="d"></div>
+    </div>
+    <div id="t"></div>
+    <script>
+    var box = document.getElementById('box');
+    var d =document.getElementById('d');
+    var t =document.getElementById('t');
+    // document.onmousemove =function(e){
+    //     if((e.clientX > 100 && e.clientX < 400) && (e.clientY > 100 && e.clientY < 300)){
+    //         d.style.display="inline";
+    //         t.style.display="inline";
+    //         d.style.left=e.clientX+'px';
+    //         d.style.top=e.clientY+'px';
+    //     }else{
+    //         d.style.display="none";
+    //         t.style.display="none";
+    //     }
+    // }
+    box.onmouseover=function(e){
+        d.style.display="block";
+        t.style.display="block";
+        
+    }
+    box.onmousemove=function(e){
+        //获取最大横坐标
+        max=(e.pageX - box.offsetLeft)- d.offsetWidth/2;
+        //获取最大纵坐标
+        may=(e.pageY - box.offsetTop)- d.offsetHeight/2;
+        //使阴影不超出盒子
+        max = max < 0 ? 0: max;
+        max = max > box.offsetWidth-d.offsetWidth ? box.offsetWidth-d.offsetWidth: max;
+        may = may <0 ? 0:may;
+        may = may > box.offsetHeight-d.offsetHeight ? box.offsetHeight-d.offsetHeight: may;
+        //给阴影添加坐标
+        d.style.left=max+'px';
+        d.style.top=may+'px';
+        //给大盒子背景添加坐标 或者给图片添加位移
+        t.style.backgroundPositionX=-(max)*10+'px';
+        t.style.backgroundPositionY=-(may)*10+'px';
+    }
+    box.onmouseout=function(e){
+        d.style.display="none";
+        t.style.display="none";
+    }
+    </script>
+</body>
+</html>

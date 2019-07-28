@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag=!flag">show</button>
+        <!-- 如果频繁切换 用v-show较好  如果不一定有出现机会 用v-if 较好(如果false不会初始渲染) -->
+        <!-- display:none  初始渲染消耗高-->
+        <p v-show='flag'>this is for v-show 玩弄的element</p>
+        <!-- 移出 切换性能消耗高-->
+        <p v-if='flag'>this is for v-if 玩弄的element</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                flag:false
+            },
+            methods:{
+            }
+        })    
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-1.6.4.js"></script>
+    <script>
+        $(function(){
+
+            $("#btn1").click(function(){
+                $("#dv").hide(1000);
+            });
+            $("#btn2").click(function(){
+                $("#dv").show(1000);
+            });
+            $("#btn3").click(function(){
+                $("#dv").slideUp(1000);
+            });
+            $("#btn4").click(function(){
+                $("#dv").slideDown(1000);
+            });
+            $("#btn5").click(function(){
+                $("#dv").slideToggle(1000);
+            });
+            $("#btn6").click(function(){
+                $("#dv").fadeIn(1000);
+            });
+            $("#btn7").click(function(){
+                $("#dv").fadeOut(1000);
+            });
+            $("#btn8").click(function(){
+                $("#dv").fadeToggle(1000);
+            });
+            $("#btn9").click(function(){
+                $("#dv").fadeTo(1000,.3);
+            });
+            $("#btn0").click(function(){
+                $("#dv").animate({"left":"300px","top":"400px"},1000);
+            });
+        });
+    </script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #0f0;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="隐藏" id='btn1'>
+    <input type="button" value="显示" id='btn2'>
+    <input type="button" value="滑入" id='btn3'>
+    <input type="button" value="滑出" id='btn4'>
+    <input type="button" value="切换滑入滑出" id='btn5'>
+    <input type="button" value="淡入" id='btn6'>
+    <input type="button" value="淡出" id='btn7'>
+    <input type="button" value="切换淡入淡出" id='btn8'>
+    <input type="button" value="透明度" id='btn9'>
+    <input type="button" value="动画" id='btn0'>
+    
+    <div id='dv'></div>
+</body>
+</html>

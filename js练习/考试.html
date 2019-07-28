@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //在控制台输出 1到100之间 所有能被5整除的数的和
+        // var sum = 0;
+        // for(var i = 1 ; i <= 100;i++){
+        //     if(i % 5 == 0){
+        //         sum += i ;
+        //     }
+        // }
+        // console.log(sum);
+        
+        //请将1到100之间所有能被3整除的数字添加到新数组arr中，并打印到控制台
+        // var arr = [];
+        // for(var i = 1 ; i <= 100;i++){
+        //     if(i % 3 == 0){
+        //         arr.push(i);
+        //     }
+        // }
+        // console.log(arr);
+        
+        //九九乘法表
+        // var str = '';
+        // for(var i = 1 ; i <= 9 ; i++){
+        //     for(var j = i ; j <= 9 ; j++){
+        //         str += i + "*" + j + "=" +i*j +" ";
+        //     }
+        //     str +="\t\n";
+        // }
+        // console.log(str);
+        
+        //已知数组 arr = [1,9,3,7,5] ,使用程序计算出该数组的最大值，封装成函数
+        // var arr = [1,9,3,7,5];
+        // function getMax(arr){
+        //     var max = arr[0];
+        //     for(var i = 1 ; i< arr.length ; i++){
+        //         if(arr[i]> max){
+        //             max = arr[i];
+        //         }
+        //     }
+        //     return max;
+        // }
+        // console.log(getMax(arr));
+        
+        //封装一个对数组元素进行冒泡排序的函数（从大到小）
+        // var arr = [1,9,3,7,5];
+        // function sort(arr){
+        //     for(var i = 0;i<arr.length ; i++){
+        //         for(var j = 0;j<arr.length-1 ; j++){
+        //             if(arr[j]<arr[j+1]){
+        //                var tem = arr[j];
+        //                arr[j] =arr[j+1];
+        //                arr[j+1]= tem;
+        //             }
+        //         }
+        //     }
+        // }
+        // sort(arr);
+        // console.log(arr);
+        
+
+        //编写一个函数，将如下字符串'get-element-by-id'修改为驼峰表示法'getElementById'
+        var str = 'get-element-by-id';
+        var ar = str.split('-');
+        var strn = ar[0];
+        for(var i = 1 ; i< ar.length ; i++){
+            var s = ar[i][0].toLocaleUpperCase();
+            for(var j = 1 ; j<ar[i].length ; j++){
+                console.log(j);
+                
+                s += ar[i][j];
+            }
+           strn += s;
+        }
+        console.log(strn);
+    </script>
+</body>
+</html>

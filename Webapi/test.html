@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        thead td {
+            background-color: #8a2be2;
+            padding: 5px 20px;
+            text-align: center;
+        }
+
+        thead td:nth-child(2) {
+            width: 200px;
+        }
+
+        thead td:nth-child(3) {
+            width: 180px;
+        }
+
+        .red td {
+            background-color: red;
+        }
+
+        tbody td {
+            background-color: yellow;
+            text-align: center;
+        }
+        table th,td{
+            border: 1px solid #000;
+        }
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    请输入姓名: <input type="text" id="username"><br>
+    请输入邮箱: <input type="text" id="email"><br>
+    请输入手机: <input type="text" id="phone"><br>
+    请输入地址: <input type="text" id="addr"><br>
+    <button id="btn">添加</button><br>
+    <table>
+        <thead>
+            <td>姓名</td>
+            <td>邮箱</td>
+            <td>手机</td>
+            <td>地址</td>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var username = document.getElementById('username');
+        var email = document.getElementById('email');
+        var phone = document.getElementById('phone');
+        var addr = document.getElementById('addr');
+        var tbody = document.getElementsByTagName('tbody')[0];
+        var arr = [{ "username": "小黑", "email": "xiaohei@126.com", "phone": "19999099090", "addr": "北京" }];
+        var tr = document.createElement('tr');
+        var tr = document.createElement('tr');
+        tbody.appendChild(tr);
+        for (var key in arr[0]) {
+            var td = document.createElement('td');
+            tr.appendChild(td);
+            td.innerHTML = arr[0][key];
+        }
+        document.getElementById('btn').onclick = function () {
+            if (username.value == "" || email.value == "" || phone.value == "" || addr.value == "") {
+                alert('请将数据填入完全');
+                return;
+            }
+            tbody.innerHTML = "";
+            arr.push({ "username": username.value, "email": email.value, "phone": phone.value, "addr": addr.value });
+            for (let i = 0; i < arr.length; i++) {
+                var tr = document.createElement('tr');
+                tbody.appendChild(tr);
+                if (i % 2 == 1) {
+                    tr.classList.add('red');
+                }
+                for (var key in arr[i]) {
+                    var td = document.createElement('td');
+                    tr.appendChild(td);
+                    td.innerHTML = arr[i][key];
+                }
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

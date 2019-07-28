@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #bigbox{
+            width: 400px;
+            height: 650px;
+            background-color: #000;
+            position: relative;
+            margin: 5px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id ="bigbox">
+        
+    </div>
+    <script>
+        var bigbox = document.getElementById("bigbox");
+        //创建小格子
+        function creatFangkuai(color) {
+            var fk = document.createElement("div");
+            fk.style.width = 23 + "px";
+            fk.style.height = 23 + "px";
+            fk.style.border = 1 +"px";
+            fk.style.borderStyle= "solid";
+            fk.style.borderColor = "rgb(255,255,255)";
+            fk.style.position = "absolute";
+            fk.style.backgroundColor = color;
+            return fk;
+        }
+        //生成方块
+        function creatBox(){
+            var color = randomColor();
+            var box = document.createElement("div");
+            bigbox.appendChild(box);
+            box.style.position = "absolute";
+            box.style.left= "50%"; 
+            box.style.top = 0;
+            var rn = randomNum();
+            var rc = randomColor();
+            for (var i = 0 ; i<4 ;i++){
+                box.appendChild(creatFangkuai(rc));
+            }
+            
+            if( rn == 0 ){
+                box.children[1].style.top = 25 + "px";
+                box.children[2].style.top = 25 + "px";
+                box.children[3].style.top = 25 + "px";
+                box.children[1].style.left = 0 + "px";
+                box.children[2].style.left = 25 + "px";
+                box.children[3].style.left = 50 + "px";
+                box.style.height = 50 + "px";
+                box.style.width = 50 + "px";
+            }
+            if( rn == 1 ){
+                box.children[1].style.top = 25 + "px";
+                box.children[2].style.top = 25 + "px";
+                box.children[3].style.top = 25 + "px";
+                box.children[1].style.left = -25 + "px";
+                box.children[2].style.left = 0 + "px";
+                box.children[3].style.left = 25 + "px";
+                box.style.height = 50 + "px";
+                box.style.width = 50 + "px";
+            }
+            if( rn == 2 ){
+                box.children[1].style.top = 25 + "px";
+                box.children[2].style.top = 25 + "px";
+                box.children[3].style.top = 25 + "px";
+                box.children[1].style.left = -50 + "px";
+                box.children[2].style.left = -25 + "px";
+                box.children[3].style.left = 0 + "px";
+                box.style.height = 50 + "px";
+                box.style.width = 50 + "px";
+            }
+            if( rn == 3 ){
+                box.children[1].style.top = 0 + "px";
+                box.children[2].style.top = 0 + "px";
+                box.children[3].style.top = 0 + "px";
+                box.children[1].style.left = 25 + "px";
+                box.children[2].style.left = 50 + "px";
+                box.children[3].style.left = 75 + "px";
+                box.style.height = 25 + "px";
+                box.style.width = 50 + "px";
+            }
+            if( rn == 4 ){
+                box.children[1].style.top = 0 + "px";
+                box.children[2].style.top = 25 + "px";
+                box.children[3].style.top = 25 + "px";
+                box.children[1].style.left = 25 + "px";
+                box.children[2].style.left = 0 + "px";
+                box.children[3].style.left = 25 + "px";
+                box.style.height = 50 + "px";
+                box.style.width = 50 + "px";
+            }
+            if( rn == 5 ){
+                box.children[1].style.top = 0 + "px";
+                box.children[2].style.top = 0 + "px";
+                box.children[3].style.top = 25 + "px";
+                box.children[1].style.left = 25 + "px";
+                box.children[2].style.left = 50 + "px";
+                box.children[3].style.left = 0 + "px";
+                box.style.height = 50 + "px";
+                box.style.width = 50 + "px";
+            }
+            if( rn == 6 ){
+                box.children[1].style.top = 25 + "px";
+                box.children[2].style.top = 50 + "px";
+                box.children[3].style.top = 75 + "px";
+                box.children[1].style.left = 0 + "px";
+                box.children[2].style.left = 0 + "px";
+                box.children[3].style.left = 0 + "px";
+                box.style.height = 100 + "px";
+                box.style.width = 50 + "px";
+            }
+            if( rn == 7 ){
+                box.children[1].style.top = 0 + "px";
+                box.children[2].style.top = 0 + "px";
+                box.children[3].style.top = 25 + "px";
+                box.children[1].style.left = -25 + "px";
+                box.children[2].style.left = 25 + "px";
+                box.children[3].style.left = 25 + "px";
+                box.style.height = 50 + "px";
+                box.style.width = 50 + "px";
+            }
+            if( rn == 8 ){
+                box.children[1].style.top = 0 + "px";
+                box.children[2].style.top = 0 + "px";
+                box.children[3].style.top = 25 + "px";
+                box.children[1].style.left = -25 + "px";
+                box.children[2].style.left = 25 + "px";
+                box.children[3].style.left = 0 + "px";
+                box.style.height = 50 + "px";
+                box.style.width = 100 + "px";
+            }
+            console.log(rn);
+            
+            return box;
+        }
+
+        //随机生成颜色
+        function randomColor(){
+            return "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")";
+        }
+        //随机生成数字0~8
+        function randomNum(){
+            return parseInt(Math.random()*9);
+        }
+        
+        //用数组形式存放底部格子
+        var gezi =[];
+        for(var i = 0; i< 8 ; i++){
+            gezi[i]=0;
+        }
+
+        //让方块落到底部
+        function moveBox(){
+            var box = creatBox();
+
+            var modown =setInterval (function(){
+                var current =box.offsetTop;
+                current += 25 ; 
+                if(box.offsetTop+50 > bigbox.offsetHeight-box.offsetHeight){
+
+                    clearInterval(modown);
+                    moveBox();
+                }
+                box.style.top = current + "px";
+            },500)
+        }
+        moveBox();
+    </script>
+</body>
+</html>
